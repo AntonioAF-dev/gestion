@@ -1,0 +1,777 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/*---------------------------------------------------*/
+/* Estilos para el contenedor principal */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/*----------------------------------------------------*/
+/* Estilos del Encabezado (Header) */
+header {
+    height: 100vh;
+    width: 100%;
+}
+
+/* HEADER Portada */
+
+.portada {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.portada-img {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+}
+
+.logo-vice-img {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    width: 25%;
+    height: auto;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.portada h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(147, 18, 18);
+    text-shadow: 8px 4px 4px rgba(255, 255, 255, 0.9);
+    font-size: 5rem;
+    text-align: center;
+    z-index: 3;
+}
+
+main {
+    padding-top: 45px;
+    height: auto;
+    background: #e8e0e0;
+    padding-bottom: 45px;
+}
+
+/*estilos del main content*/
+
+
+.container2 {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding-top: 45px;
+}
+
+/* Formulario */
+#searchForm {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+    gap: 10px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#searchForm input,
+#searchForm select {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+}
+
+.btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    align-self: center;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Tabla de resultados */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.table th,
+.table td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.table td {
+    font-size: 14px;
+    color: #555;
+}
+
+.table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.table tbody tr td a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.table tbody tr td a:hover {
+    text-decoration: underline;
+}
+
+.text-center {
+    color: #888;
+    font-style: italic;
+    font-size: 14px;
+}
+
+
+
+/* Contenedor principal */
+.container3 {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Título */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilo de la cuadrícula */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Tarjetas */
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card h3 {
+    font-size: 18px;
+    color: #007bff;
+}
+
+.card p {
+    font-size: 14px;
+    color: #555;
+    margin: 10px 0;
+}
+
+.card .btn {
+    display: inline-block;
+    padding: 10px 15px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+}
+
+.card .btn:hover {
+    background-color: #0056b3;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/*-------------------------------------*/
+
+/* Contenedor principal de las publicaciones */
+.container.publicaciones {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Título de la sección */
+h2 {
+    font-size: 24px;
+    color: #444;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Cuadrícula de publicaciones */
+.publicacion-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Tres columnas */
+    gap: 20px;
+}
+
+/* Estilo de las tarjetas */
+.publicacion-card {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+/* Título de la tarjeta */
+.publicacion-card h3 {
+    font-size: 18px;
+    color: #ffdd57;
+    margin-bottom: 10px;
+}
+
+/* Fecha */
+.publicacion-card .fecha {
+    font-size: 14px;
+    color: #f0f0f0;
+    margin-bottom: 15px;
+}
+
+/* Resumen */
+.publicacion-card .resumen {
+    font-size: 14px;
+    color: #e2e2e2;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Botón de la publicación */
+.publicacion-card .btn-publicacion {
+    display: inline-block;
+    padding: 10px 15px;
+    color: #0056b3;
+    background-color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover sobre la tarjeta */
+.publicacion-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Hover sobre el botón */
+.publicacion-card .btn-publicacion:hover {
+    background-color: #ffdd57;
+    color: #0056b3;
+}
+
+/* Responsivo: 2 tarjetas por fila en pantallas medianas */
+@media (max-width: 768px) {
+    .publicacion-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* Dos columnas */
+    }
+}
+
+/* Responsivo: 1 tarjeta por fila en pantallas pequeñas */
+@media (max-width: 480px) {
+    .publicacion-grid {
+        grid-template-columns: 1fr;
+        /* Una columna */
+    }
+}
+
+/*------------------------------------------------------------------*/
+.hora {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;
+    color: #00FF00;
+    background-color: #5e59592c;
+    padding: 8px;
+    border-radius: 10px;
+    display: inline-block;
+    text-shadow: 0 0 10px #000000, 0 0 20px #000000, 0 0 30px #000000;
+    letter-spacing: 5px;
+    /* Espaciado entre los dígitos */
+}
+
+.title-header {
+    text-align: center;
+    margin: 20px;
+    font-size: 23px;
+    padding: 5px;
+    font-weight: bold;
+    /* Negrita */
+    color: #5cb5b8;
+    /* Color principal del texto */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Sombra del texto */
+}
+
+
+
+/*-----------------------------------------------------------------------*/
+
+/* Estilos para el contenido principal */
+.main-content {
+    width: 100%;
+    padding: 0 0 0 1px;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+/*------------------------------------------------------------------------*/
+/*Barra de navegación Horizontal*/
+
+.fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Asegura que el navbar esté por encima de otros elementos */
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    /* Padding around the navbar items */
+    background-color: #f1f6f8;
+    /* Background color of the navbar */
+    font-family: Arial, sans-serif;
+    /* Font for navbar items */
+    position: -webkit-sticky;
+    /* Fija el navbar-container en la parte superior */
+    position: sticky;
+    /* Fija el navbar-container en la parte superior */
+    top: 0;
+    /* Ajuste superior */
+    width: 100%;
+    height: 60px;
+    z-index: 4;
+    /* Asegura que el navbar esté por encima de otros elementos */
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Botón */
+.btn-iniciar-sesion {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #5cb5b8;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.btn-iniciar-sesion:hover {
+    background-color: #028a93;
+    transform: scale(1.05);
+}
+
+.btn-iniciar-sesion:active {
+    transform: scale(1);
+}
+
+/*SubNavBar*/
+
+.subnavbar {
+    background-color: #80b0ab;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    font-family: Arial, sans-serif;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 60px;
+    width: 100%;
+    height: 45px;
+    z-index: 4;
+}
+
+/* Contenedor subnavbar */
+.subnavbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    padding: 10px 20px;
+    background-color: #2f3b3d;
+    border-top: 3px solid #00adb5;
+}
+
+/* Enlaces de la subnavbar */
+.subnavbar a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.subnavbar a:hover {
+    color: #00adb5;
+    /* Color de contraste en hover */
+}
+
+/* Elementos <ul> dentro de la subnavbar */
+.subnavbar .navbar1 {
+    list-style: none;
+    padding: 5px 10px;
+    /* Relleno para los elementos */
+    margin: 0;
+    background-color: #394149;
+    /* Fondo acorde al diseño */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.subnavbar .navbar1:hover {
+    background-color: #00adb5;
+    /* Cambio de fondo en hover */
+    transform: scale(1.1);
+    /* Zoom leve en hover */
+    color: #ffffff;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown .navbar1 {
+    cursor: pointer;
+    list-style: none;
+    padding: 5px 10px;
+    margin: 0;
+    color: #fff;
+    background-color: #394149;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+
+/* Contenido del dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #394149;
+    min-width: 130px;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #ffffff;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #ffffff;
+}
+
+/*----------------------------------------------------------------------------------*/
+
+/* Contenedor principal */
+
+
+
+/* Estilos del footer */
+footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columnas iguales */
+    grid-template-rows: auto auto;
+    /* Una fila para el contenido principal y otra para el copyright */
+    gap: 20px;
+    /* Espaciado entre las columnas */
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+}
+
+footer>div {
+    flex: 1;
+    /* Hace que cada columna tenga el mismo ancho */
+    padding: 0 20px;
+    /* Espaciado interno en cada columna */
+}
+
+footer .informes,
+footer .Siguenos,
+footer .pg-amigas {
+    color: #333;
+}
+
+/* Asegura que cada sección esté alineada correctamente */
+footer .informes {
+    grid-column: 1;
+    /* Primera columna */
+}
+
+footer .Siguenos {
+    grid-column: 2;
+    /* Segunda columna */
+    text-align: center;
+    /* Centrado para las redes sociales */
+}
+
+footer .pg-amigas {
+    grid-column: 3;
+    /* Tercera columna */
+    text-align: center;
+    /* Contenido alineado a la derecha */
+}
+
+/*-----------*/
+
+.pie-pg {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #33aba0;
+}
+
+.direcciones {
+    font-size: large;
+    color: #777173;
+    margin-bottom: 10px;
+    /* Espacio inferior de los elementos */
+}
+
+/*Estilos para botones de redes sociales (Siguenos en)*/
+ul {
+    list-style: none;
+}
+
+.example-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.example-2 .icon-content {
+    margin: 0 10px;
+    position: relative;
+}
+
+.example-2 .icon-content .tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.example-2 .icon-content:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -50px;
+}
+
+.example-2 .icon-content a {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #4d4d4d;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.example-2 .icon-content a:hover {
+    box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+}
+
+.example-2 .icon-content a svg {
+    position: relative;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+}
+
+.example-2 .icon-content a:hover {
+    color: white;
+}
+
+.example-2 .icon-content a .filled {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+}
+
+.example-2 .icon-content a:hover .filled {
+    height: 100%;
+}
+
+.example-2 .icon-content a[data-social="linkedin"] .filled,
+.example-2 .icon-content a[data-social="linkedin"]~.tooltip {
+    background-color: #0274b3;
+}
+
+.example-2 .icon-content a[data-social="github"] .filled,
+.example-2 .icon-content a[data-social="github"]~.tooltip {
+    background-color: #24262a;
+}
+
+.example-2 .icon-content a[data-social="instagram"] .filled,
+.example-2 .icon-content a[data-social="instagram"]~.tooltip {
+    background: linear-gradient(45deg,
+            #405de6,
+            #5b51db,
+            #b33ab4,
+            #c135b4,
+            #e1306c,
+            #fd1f1f);
+}
+
+.example-2 .icon-content a[data-social="youtube"] .filled,
+.example-2 .icon-content a[data-social="youtube"]~.tooltip {
+    background-color: #ff0000;
+}
+
+/*Estilos para Paginas amigas - carousel*/
+
+.carousel {
+    width: 500px;
+    height: 200px;
+    margin: 0 auto;
+    /* Centra el carrusel en la página */
+    overflow: hidden;
+    /* Asegura que no se desborden elementos */
+}
+
+.slick-slide img {
+    width: 100%;
+    /* Ajusta la imagen al contenedor */
+    height: 100%;
+    /* Asegura que las imágenes llenen el espacio */
+    object-fit: cover;
+    /* Recorta proporcionalmente si la imagen no encaja exactamente */
+}
+
+footer .pg-amigas .carousel img:hover {
+    transform: scale(1.1);
+    /* Zoom al pasar el cursor */
+}
+
+/* Estilo para la sección de copyright */
+.footer-bottom {
+    grid-column: 1 / -1;
+    /* Ocupa todas las columnas */
+    text-align: center;
+    padding: 10px 0;
+    color: #555;
+    font-size: 17px;
+    border-top: 2px solid #ccc;
+    margin-top: 10px;
+    height: 30px;
+}
+
+.inspirational-phrase {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.2em;
+    font-style: italic;
+    color: #555;
+    /* Color neutro para dar un toque elegante */
+    padding: 10px 20px;
+    border-top: 1px solid #ddd;
+    /* Línea superior para separar visualmente */
+    height: 15px;
+}
+
+.inspirational-phrase p {
+    margin: 0;
+    /* Elimina márgenes del párrafo */
+    line-height: 1.5;
+    /* Mejora la legibilidad */
+}
