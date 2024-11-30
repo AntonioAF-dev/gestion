@@ -19,7 +19,6 @@ define('ROOT_PATH', __DIR__ . '/'); // Define ROOT_PATH como la ruta del directo
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
-    <link rel="stylesheet" href="../assets/css/estilos.css">
     <title>Digitaliza UDH</title>
 </head>
 

@@ -1,21 +1,62 @@
 <?php
-include("../config/conexion.php")
-?>
+session_start(); // Inicia la sesión
+include("../config/conexion.php");
 
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["user"];
-    $password = $_POST["pass"];
+//LOGIN
 
-    // Simula autenticación
-    if ($username === "admin" && $password === "gestion") {
-        header("Location: ../index.php");
-        exit;
+if (!empty($_POST)) {
+    $usuario = mysqli_real_escape_string($conexion, $_POST['user']);
+    $password = mysqli_real_escape_string($conexion, $_POST['pass']);
+    $password_encriptada = sha1($password);
+    $sql = "SELECT idusuarios FROM usuarios WHERE usuario = '$usuario' AND password = '$password_encriptada' ";
+    $resultado = $conexion->query($sql);
+    $rows = $resultado->num_rows;
+    if ($rows > 0) {
+        $rows = $resultado->fetch_assoc();
+        $_SESSION['id_usuario'] = $rows["idusuarios"];
+        header("Location: ../index.php"); // Redirige al inicio
     } else {
-        echo "Credenciales incorrectas.";
+        echo "<script>
+                alert('Uusario o Password Incorrecto');
+                window.location = 'login.php';        
+            </script>";
+    }
+}
+
+//REGISTRAR USUARIOS
+if (isset($_POST["registrar"])) {
+    $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
+    $correo = mysqli_real_escape_string($conexion, $_POST['correo']);
+    $usuario = mysqli_real_escape_string($conexion, $_POST['user']);
+    $password = mysqli_real_escape_string($conexion, $_POST['pass']);
+    $password_encriptada = sha1($password);
+    $sqluser = "SELECT idusuarios FROM usuarios WHERE usuario = '$usuario' ";
+    $resultadouser = $conexion->query($sqluser);
+    $filas = $resultadouser->num_rows;
+    if ($filas > 0) {
+        echo "<script>
+                alert('El usuario ya existe');
+                window.location = 'login.php';        
+            </script>";
+    } else {
+        //insertar informacion
+        $sqlusuario = "INSERT INTO usuarios(Nombre,Correo,Usuario,Password) VALUES('$nombre','$correo','$usuario','$password_encriptada')";
+        $resultadousuario = $conexion->query($sqlusuario);
+        if ($resultadousuario > 0) {
+            echo "<script>
+                alert('Registro exitoso');
+                window.location = 'login.php';       
+            </script>";
+        } else {
+            echo "<script>
+                alert('Error al Registrarse');
+                window.location = 'login.php';       
+            </script>";
+        }
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,14 +108,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <fieldset>
                                                 <label class="block clearfix">
                                                     <span class="block input-icon input-icon-right">
-                                                        <input type="text" class="form-control" name="user" placeholder="Usuario" />
+                                                        <input type="text" class="form-control" name="user" placeholder="Usuario" required />
                                                         <i class="ace-icon fa fa-user"></i>
                                                     </span>
                                                 </label>
 
                                                 <label class="block clearfix">
                                                     <span class="block input-icon input-icon-right">
-                                                        <input type="password" name="pass" class="form-control" placeholder="Contraseña" />
+                                                        <input type="password" name="pass" class="form-control" placeholder="Contraseña" required />
                                                         <i class="ace-icon fa fa-lock"></i>
                                                     </span>
                                                 </label>
@@ -276,10 +317,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div><!-- /.main-content -->
     </div>
-    <script src="../assets/js/jquery-2.1.4.min.js"></script>
+    <script src="../assets/js/jquery-2.1.4.min.js">
+        < />
 
-    <script type="text/javascript">
-        if ('ontouchstart' in document.documentElement) document.write("<script src='../assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+        <
+        script type = "text/javascript" >
+            if ('ontouchstart' in document.documentElement) document.write("<script src='../assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
     </script>
 
     <!-- inline scripts related to this page -->

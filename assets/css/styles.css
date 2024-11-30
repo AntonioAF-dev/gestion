@@ -417,7 +417,7 @@ h2 {
     gap: 20px;
 }
 
-/* Botón */
+/* Botón Iniciar Sesion*/
 .btn-iniciar-sesion {
     display: inline-block;
     padding: 10px 20px;
@@ -434,6 +434,27 @@ h2 {
 }
 
 .btn-iniciar-sesion:active {
+    transform: scale(1);
+}
+
+/*Boton Cerrar Sesion*/
+
+.btn-cerrar-sesion {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #5cb5b8;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.btn-cerrar-sesion:hover {
+    background-color: #028a93;
+    transform: scale(1.05);
+}
+
+.btn-cerrar-sesion:active {
     transform: scale(1);
 }
 
