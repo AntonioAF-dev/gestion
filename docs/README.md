@@ -1,54 +1,40 @@
-# Proyecto Web de Shakira Chuquiyauri Hilario
+# Sistema de Gestión de Proyectos de Investigación - UDH
 
-Este proyecto es una página web dedicada a Shakira Chuquiyauri Hilario, una destacada abogada. La página incluye una biografía, una galería de imágenes, videos y un álbum de fotos expandido.
+Este repositorio contiene el sistema de gestión de proyectos de investigación para la **Universidad de Huánuco** (UDH). El objetivo principal de este proyecto es proporcionar una plataforma eficiente y organizada para la gestión, seguimiento y evaluación de los proyectos de investigación dentro de la universidad.
 
-## Estructura del Proyecto
+## Características
 
-El proyecto está compuesto por varios archivos PHP y recursos estáticos como imágenes, videos y archivos CSS/JavaScript. A continuación, se describe la estructura y funcionalidad de los principales componentes:
+- **Gestión de Proyectos**: Crear, editar y eliminar proyectos de investigación.
+- **Asignación de Investigadores**: Asignar investigadores y colaboradores a los proyectos.
+- **Seguimiento de Progreso**: Monitorear el progreso de los proyectos, con fechas de entrega, hitos y documentación relacionada.
+- **Documentación**: Subir y almacenar archivos relacionados con el proyecto, como informes, propuestas y resultados.
+- **Evaluación**: Permitir la evaluación de proyectos a través de retroalimentación de los evaluadores asignados.
+- **Roles de Usuario**:
+    - Administrador: Gestión completa de los proyectos y usuarios.
+    - Investigador: Gestión de su propio proyecto, carga de documentos y seguimiento de tareas.
+    - Evaluador: Revisión y evaluación de los proyectos asignados.
 
-### Archivos PHP
+## Tecnologías utilizadas
 
-- **index.php**: Archivo principal que define la ruta base `ROOT_PATH` y estructura la página web incluyendo varios componentes como el header, navbar vertical y horizontal, y el footer.
+- **PHP**: Para la lógica del servidor y la gestión de bases de datos.
+- **JavaScript**: Para interactividad en el cliente y la validación de formularios.
+- **HTML/CSS**: Para el diseño de la interfaz de usuario.
+- **MySQL**: Como base de datos relacional para almacenar la información de los proyectos.
+- **AJAX**: Para realizar actualizaciones en tiempo real en la interfaz sin recargar la página.
 
-- **navbarV.php**: Este archivo contiene el código para la barra de navegación vertical. Si no se encuentra, se muestra un mensaje de error.
+## Requisitos
 
-- **navbarH.php**: Este archivo contiene el código para la barra de navegación horizontal. Si no se encuentra, se muestra un mensaje de error.
+Para ejecutar este proyecto en tu máquina local, asegúrate de tener los siguientes requisitos:
 
-- **header.php**: Contiene el encabezado de la página. Si no se encuentra, se muestra un mensaje de error.
+- **PHP**: Versión 7.4 o superior.
+- **Servidor Web**: Apache o Nginx.
+- **MySQL**: Para la base de datos.
+- **Node.js**: Si deseas usar algunas funciones adicionales basadas en JS.
 
-- **footer.php**: Archivo que contiene el pie de página de la web.
+## Instalación
 
-### Recursos Estáticos
+### 1. Clonar el repositorio
 
-- **Imágenes**: Las imágenes están ubicadas en el directorio `assets/img/`. Estas se utilizan en las tarjetas de perfil, la galería de recuerdos y el álbum de fotos expandido.
 
-- **Videos**: Los videos están ubicados en el directorio `assets/vid/`. Estos se muestran en la sección "Mis videos" con controles de reproducción.
-
-- **CSS**: El archivo de estilos `styles.css` ubicado en `assets/css/` define el estilo visual de la página.
-
-- **JavaScript**: El archivo `script.js` ubicado en `assets/js/` contiene scripts para interacciones y funcionalidades en la página.
-
-## Secciones Principales de la Página
-
-- **Perfil**: Se muestra información detallada sobre Shakira Chuquiyauri Hilario, incluyendo su biografía y trayectoria profesional.
-
-- **Galería de Imágenes**: Una colección de imágenes que representa recuerdos significativos.
-
-- **Videos**: Sección que muestra videos relacionados con la abogada.
-
-- **Álbum de Fotos Expandido**: Una sección con una vista ampliada de varias imágenes.
-
-## Favicon
-
-El proyecto utiliza un favicon personalizado ubicado en `https://www.urbasanz.com/wp-content/uploads/2024/02/Gestion-Inmobiliaria.webp`.
-
-## Cómo Ejecutar
-
-1. Clona este repositorio en tu máquina local.
-2. Asegúrate de que los archivos mencionados están presentes en las rutas especificadas.
-3. Inicia un servidor local y accede a `index.php` a través de tu navegador web.
-
-## Contacto
-
-Para más información, puedes contactar a Shakira Chuquiyauri Hilario o visitar su página web oficial.
-
+```bash
+git clone https://github.com/AntonioAF-dev/gestion
