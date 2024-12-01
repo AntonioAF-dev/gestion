@@ -2,8 +2,13 @@
 session_start(); // Inicia la sesión
 include("../config/conexion.php");
 
-//LOGIN
+// Verifica si el usuario ya está logueado
+if (isset($_SESSION['id_usuario'])) {
+    header("Location: ../index.php"); // Redirige al inicio si ya está logueado
+    exit;  // Asegúrate de que el script se detenga después de la redirección
+}
 
+// LOGIN
 if (!empty($_POST)) {
     $usuario = mysqli_real_escape_string($conexion, $_POST['user']);
     $password = mysqli_real_escape_string($conexion, $_POST['pass']);
@@ -14,16 +19,17 @@ if (!empty($_POST)) {
     if ($rows > 0) {
         $rows = $resultado->fetch_assoc();
         $_SESSION['id_usuario'] = $rows["idusuarios"];
-        header("Location: ../index.php"); // Redirige al inicio
+        header("Location: ../index.php"); // Redirige al inicio después de iniciar sesión
+        exit;  // Detiene la ejecución del script después de la redirección
     } else {
         echo "<script>
-                alert('Uusario o Password Incorrecto');
+                alert('Usuario o Password Incorrecto');
                 window.location = 'login.php';        
             </script>";
     }
 }
 
-//REGISTRAR USUARIOS
+// REGISTRAR USUARIOS
 if (isset($_POST["registrar"])) {
     $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
     $correo = mysqli_real_escape_string($conexion, $_POST['correo']);
@@ -39,7 +45,7 @@ if (isset($_POST["registrar"])) {
                 window.location = 'login.php';        
             </script>";
     } else {
-        //insertar informacion
+        // Insertar información
         $sqlusuario = "INSERT INTO usuarios(Nombre,Correo,Usuario,Password) VALUES('$nombre','$correo','$usuario','$password_encriptada')";
         $resultadousuario = $conexion->query($sqlusuario);
         if ($resultadousuario > 0) {
@@ -56,6 +62,7 @@ if (isset($_POST["registrar"])) {
     }
 }
 ?>
+
 
 
 <!DOCTYPE html>
@@ -317,12 +324,9 @@ if (isset($_POST["registrar"])) {
             </div>
         </div><!-- /.main-content -->
     </div>
-    <script src="../assets/js/jquery-2.1.4.min.js">
-        < />
-
-        <
-        script type = "text/javascript" >
-            if ('ontouchstart' in document.documentElement) document.write("<script src='../assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+    <script src="../assets/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+        if ('ontouchstart' in document.documentElement) document.write("<script src='../assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
     </script>
 
     <!-- inline scripts related to this page -->

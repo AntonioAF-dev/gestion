@@ -1,6 +1,24 @@
 <?php
 define('ROOT_PATH', __DIR__ . '/'); // Define ROOT_PATH como la ruta del directorio actual
+
+// Start session only if it's not started yet
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+include("config/conexion.php");
+
+if (!isset($_SESSION['id_usuario'])) {
+    header("Location: index.php"); // Redirige al inicio
+    exit(); // Always call exit after header redirection
+}
+
+$iduser = $_SESSION['id_usuario'];
+$sql = "SELECT idusuarios, Nombre FROM usuarios WHERE idusuarios = '$iduser'";
+$resultado = $conexion->query($sql);
+$row = $resultado->fetch_assoc();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">

@@ -1,5 +1,7 @@
 <?php
-session_start(); // Asegúrate de que la sesión esté activa
+if (session_status() == PHP_SESSION_NONE) {
+    session_start(); // Start the session if it hasn't been started yet
+}
 $usuarioAutenticado = isset($_SESSION['usuario']);
 ?>
 
