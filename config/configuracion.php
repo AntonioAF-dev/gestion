@@ -8,3 +8,4 @@ $server = 'localhost';
 $user = 'root';
 $pass = '';
 $bd = 'gp';
+?>

@@ -4,12 +4,12 @@ include("../config/conexion.php");
 
 // Verifica si el usuario ya está logueado
 if (isset($_SESSION['id_usuario'])) {
-    header("Location: ../index.php"); // Redirige al inicio si ya está logueado
+    header("Location: admin.php"); // Redirige al inicio si ya está logueado
     exit;  // Asegúrate de que el script se detenga después de la redirección
 }
 
-// LOGIN
-if (!empty($_POST)) {
+// Login
+if (isset($_POST["ingresar"])) {
     $usuario = mysqli_real_escape_string($conexion, $_POST['user']);
     $password = mysqli_real_escape_string($conexion, $_POST['pass']);
     $password_encriptada = sha1($password);
@@ -17,10 +17,9 @@ if (!empty($_POST)) {
     $resultado = $conexion->query($sql);
     $rows = $resultado->num_rows;
     if ($rows > 0) {
-        $rows = $resultado->fetch_assoc();
-        $_SESSION['id_usuario'] = $rows["idusuarios"];
-        header("Location: ../index.php"); // Redirige al inicio después de iniciar sesión
-        exit;  // Detiene la ejecución del script después de la redirección
+        $row = $resultado->fetch_assoc();
+        $_SESSION['id_usuario'] = $row["idusuarios"];
+        header("Location: admin.php"); // Redirige al inicio después de iniciar sesión
     } else {
         echo "<script>
                 alert('Usuario o Password Incorrecto');
@@ -29,7 +28,7 @@ if (!empty($_POST)) {
     }
 }
 
-// REGISTRAR USUARIOS
+//REGISTRAR USUARIOS
 if (isset($_POST["registrar"])) {
     $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
     $correo = mysqli_real_escape_string($conexion, $_POST['correo']);
@@ -45,7 +44,8 @@ if (isset($_POST["registrar"])) {
                 window.location = 'login.php';        
             </script>";
     } else {
-        // Insertar información
+        //echo "Credenciales incorrectas.";
+        //insertar informacion
         $sqlusuario = "INSERT INTO usuarios(Nombre,Correo,Usuario,Password) VALUES('$nombre','$correo','$usuario','$password_encriptada')";
         $resultadousuario = $conexion->query($sqlusuario);
         if ($resultadousuario > 0) {
@@ -62,8 +62,6 @@ if (isset($_POST["registrar"])) {
     }
 }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -135,7 +133,7 @@ if (isset($_POST["registrar"])) {
                                                         <span class="lbl"> Recordarme</span>
                                                     </label>
 
-                                                    <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
+                                                    <button type="submit" name="ingresar" class="width-35 pull-right btn btn-sm btn-primary">
                                                         <i class="ace-icon fa fa-key"></i>
                                                         <span class="bigger-110">Ingresar</span>
                                                     </button>
@@ -198,22 +196,23 @@ if (isset($_POST["registrar"])) {
                                             Ingresa tu correo electronico para recibir las instrucciones
                                         </p>
 
-                                        <form>
+                                        <form action="process_recovery.php" method="POST">
                                             <fieldset>
                                                 <label class="block clearfix">
                                                     <span class="block input-icon input-icon-right">
-                                                        <input type="email" class="form-control" placeholder="Email" />
+                                                        <input type="email" name="email" class="form-control" placeholder="Email" required />
                                                         <i class="ace-icon fa fa-envelope"></i>
                                                     </span>
                                                 </label>
                                                 <div class="clearfix">
-                                                    <button type="button" class="width-35 pull-right btn btn-sm btn-danger">
+                                                    <button type="submit" class="width-35 pull-right btn btn-sm btn-danger">
                                                         <i class="ace-icon fa fa-lightbulb-o"></i>
                                                         <span class="bigger-110">Enviar</span>
                                                     </button>
                                                 </div>
                                             </fieldset>
                                         </form>
+
                                     </div><!-- /.widget-main -->
 
                                     <div class="toolbar center">
@@ -273,7 +272,7 @@ if (isset($_POST["registrar"])) {
                                                     <input type="checkbox" class="ace" />
                                                     <span class="lbl">
                                                         Acepto los
-                                                        <a href="#">Terminos de Uso</a>
+                                                        <a href="terminos.php" target="_blank">Terminos de Uso</a>
                                                     </span>
                                                 </label>
                                                 <div class="space-24"></div>

@@ -1,24 +1,7 @@
 <?php
 define('ROOT_PATH', __DIR__ . '/'); // Define ROOT_PATH como la ruta del directorio actual
 
-// Start session only if it's not started yet
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
-include("config/conexion.php");
-
-if (!isset($_SESSION['id_usuario'])) {
-    header("Location: index.php"); // Redirige al inicio
-    exit(); // Always call exit after header redirection
-}
-
-$iduser = $_SESSION['id_usuario'];
-$sql = "SELECT idusuarios, Nombre FROM usuarios WHERE idusuarios = '$iduser'";
-$resultado = $conexion->query($sql);
-$row = $resultado->fetch_assoc();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -34,6 +17,8 @@ $row = $resultado->fetch_assoc();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
@@ -72,8 +57,9 @@ $row = $resultado->fetch_assoc();
         }
         ?>
         <!-- Incluir cuerpo-->
+
         <?php
-        $navbarH_path = ROOT_PATH . 'views/investigacion.php';
+        $navbarH_path = ROOT_PATH . 'views/public.php';
         if (file_exists($navbarH_path)) {
             include($navbarH_path);
         } else {
