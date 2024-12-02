@@ -83,33 +83,13 @@ $row = $resultado->fetch_assoc();
                 <a href="admin.php" class="navbar-brand">
                     <small>
                         <i class="fa fa-leaf"></i>
-                        Sistema de Usuarios
+                        Sistema de Gestión Digital De Procesos De Investigación
                     </small>
                 </a>
             </div>
 
             <div class="navbar-buttons navbar-header pull-right" role="navigation">
                 <ul class="nav ace-nav">
-                    <li class="purple dropdown-modal">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <i class="ace-icon fa fa-bell icon-animated-bell"></i>
-                            <span class="badge badge-important">1</span>
-                        </a>
-
-                        <ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
-                            <li class="dropdown-header">
-                                <i class="ace-icon fa fa-exclamation-triangle"></i>
-                                1 Curso Gratis
-                            </li>
-
-                            <li class="dropdown-footer">
-                                <a href="https://www.udemy.com/curso-basico-de-programacion-en-php">
-                                    Registrarse en curso gratis
-                                    <i class="ace-icon fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
 
                     <li class="green dropdown-modal">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -120,13 +100,34 @@ $row = $resultado->fetch_assoc();
                         <ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
                             <li class="dropdown-header">
                                 <i class="ace-icon fa fa-graduation-cap"></i>
-                                8 Cursos
+                                8 Inversionistas
                             </li>
 
 
                             <li class="dropdown-footer">
                                 <a href="http:/www.jairogaleas.com/cursos">
-                                    Ver todos los cursos
+                                    Ver inversionistas interesados
+                                    <i class="ace-icon fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="purple dropdown-modal">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="ace-icon fa fa-bell icon-animated-bell"></i>
+                            <span class="badge badge-important">1</span>
+                        </a>
+
+                        <ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
+                            <li class="dropdown-header">
+                                <i class="ace-icon fa fa-exclamation-triangle"></i>
+                                1 Proyecto Aprobado
+                            </li>
+
+                            <li class="dropdown-footer">
+                                <a href="https://www.udemy.com/curso-basico-de-programacion-en-php">
+                                    Iniciar Proyecto
                                     <i class="ace-icon fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -135,11 +136,11 @@ $row = $resultado->fetch_assoc();
 
                     <li class="light-blue dropdown-modal">
                         <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                            <img class="nav-user-photo" src="assets/images/avatars/user.jpg" />
+                            <img class="nav-user-photo" src="../assets/images/avatars/user.jpg" />
                             <span class="user-info">
                                 <small>Bienvenid@</small>
                                 <!-- Mostrar Nombre del Usuario Logueado-->
-                                <?php 
+                                <?php
                                 echo utf8_decode($row['Nombre']);
                                 ?>
                             </span>
@@ -172,7 +173,7 @@ $row = $resultado->fetch_assoc();
         </div><!-- /.navbar-container -->
     </div>
 
-    
+
 
 
     <div class="main-container ace-save-state" id="main-container">
@@ -238,7 +239,7 @@ $row = $resultado->fetch_assoc();
                             <i class="ace-icon fa fa-home home-icon"></i>
                             <a href="admin.php">Home</a>
                         </li>
-                        <li class="active">Escritorio</li>
+                        <li class="active">Proyectos</li>
                     </ul><!-- /.breadcrumb -->
 
                     <div class="nav-search" id="nav-search">
@@ -321,7 +322,7 @@ $row = $resultado->fetch_assoc();
 
                     <div class="page-header">
                         <h1>
-                            Escritorio
+                            Preselección de Proyectos: ¡Envía el Tuyo!
                             <small>
                                 <i class="ace-icon fa fa-angle-double-right"></i>
 
@@ -332,7 +333,14 @@ $row = $resultado->fetch_assoc();
                     <div class="row">
                         <div class="col-xs-12">
                             <!-- PAGE CONTENT BEGINS -->
-
+                            <?php
+                            $navbarH_path = ROOT_PATH . 'investigaciones.php';
+                            if (file_exists($navbarH_path)) {
+                                include($navbarH_path);
+                            } else {
+                                echo "No se encontró el archivo subnavbar.php en la ruta: " . $navbarH_path;
+                            }
+                            ?>
 
                             <!-- PAGE CONTENT ENDS -->
                         </div><!-- /.col -->

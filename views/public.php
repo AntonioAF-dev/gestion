@@ -82,7 +82,7 @@
             <div class="recurso">
                 <h3>Fuentes de Financiamiento</h3>
                 <p>Descubre opciones de financiamiento para hacer realidad tu proyecto.</p>
-                <a href="https://example.com/financiamiento" class="btn-recurso" target="_blank">Más Información</a>
+                <a href="views/financiamiento.php" class="btn-recurso" target="_blank">Más Información</a>
             </div>
         </div>
     </div>
