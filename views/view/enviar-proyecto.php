@@ -1,19 +1,11 @@
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Proyecto</title>
-    <link rel="stylesheet" href="../assets/css/back.css">
-</head>
-
-<body class="formulario-proyecto-body">
+<div class="formulario-proyecto-body">
     <div class="formulario-proyecto-contenedor">
-        <form class="formulario-proyecto-form">
+        <form class="formulario-proyecto-form" id="proyectoForm">
             <div class="formulario-proyecto-seccion">
                 <label for="titulo" class="formulario-proyecto-label">Título del Proyecto:</label>
                 <input type="text" id="titulo" name="titulo" placeholder="Ingrese Título Del Proyecto" class="formulario-proyecto-input">
             </div>
+
             <div class="formulario-proyecto-seccion">
                 <h2 class="formulario-proyecto-titulo">Datos del investigador</h2>
                 <div class="formulario-proyecto-grid">
@@ -43,6 +35,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="formulario-proyecto-seccion">
                 <h2 class="formulario-proyecto-titulo">Información del Proyecto</h2>
                 <div class="formulario-proyecto-grid">
@@ -57,7 +50,6 @@
                             <option value="maestria">Maestría</option>
                         </select>
                     </div>
-
                     <div>
                         <label for="palabras" class="formulario-proyecto-label">Palabras Clave:</label>
                         <input type="text" id="palabras" name="palabras" class="formulario-proyecto-input">
@@ -78,11 +70,10 @@
                     </div>
                 </div>
             </div>
+
             <div class="formulario-proyecto-boton-contenedor">
                 <button type="submit" class="formulario-proyecto-boton">ENVIAR PROYECTO</button>
             </div>
         </form>
     </div>
-</body>
-
-</html>
+</div>

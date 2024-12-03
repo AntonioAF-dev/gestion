@@ -30,9 +30,8 @@ $row = $resultado->fetch_assoc();
     <meta name="description" content="overview &amp; stats" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
-
+    <link rel="stylesheet" href="../assets/css/back.css">
     <!-- bootstrap & fontawesome -->
-    <script src="../assets/js/menu-handler.js"></script>
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../assets/font-awesome/4.5.0/css/font-awesome.min.css" />
 
@@ -45,10 +44,12 @@ $row = $resultado->fetch_assoc();
     <link rel="stylesheet" href="../assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
 
     <!--[if lte IE 9]>
-			<link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet" />
-		<![endif]-->
+    <link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet" />
+    <![endif]-->
     <link rel="stylesheet" href="../assets/css/ace-skins.min.css" />
     <link rel="stylesheet" href="../assets/css/ace-rtl.min.css" />
+    <script src="../assets/js/menu-handler.js"></script>
+    <script src="../assets/js/proceso.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 

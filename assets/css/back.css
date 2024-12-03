@@ -1,10 +1,11 @@
+/* Ajustamos el contenedor principal para que se adapte al contenedor dinámico */
 .formulario-proyecto-body {
     background-color: #f7f7f7;
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Cambiado de center para mejor scroll */
     justify-content: center;
-    min-height: 100vh;
-    margin: 0;
+    min-height: 100%;
+    padding: 2rem 0;
     font-family: Arial, sans-serif;
 }
 
@@ -15,12 +16,11 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 850px;
-    margin: auto;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-
 
 .formulario-proyecto-form {
     width: 100%;
@@ -34,7 +34,7 @@
     font-size: 1.25rem;
     font-weight: bold;
     color: #2c7ac7;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .formulario-proyecto-label {
@@ -53,6 +53,7 @@
     border-radius: 4px;
     font-size: 1rem;
     outline: none;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
 }
 
 .formulario-proyecto-input:focus,
@@ -77,6 +78,7 @@
 .formulario-proyecto-boton-contenedor {
     display: flex;
     justify-content: center;
+    margin-top: 2rem;
 }
 
 .formulario-proyecto-boton {
@@ -87,9 +89,33 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, transform 0.1s;
 }
 
 .formulario-proyecto-boton:hover {
     background-color: #2f855a;
+    transform: translateY(-1px);
+}
+
+.formulario-proyecto-boton:active {
+    transform: translateY(0);
+}
+
+/* Estilos adicionales para mejorar la integración */
+#dynamic-content {
+    min-height: 100%;
+    padding: 1rem;
+    background-color: #f7f7f7;
+}
+
+/* Mejoras en la responsividad */
+@media (max-width: 767px) {
+    .formulario-proyecto-contenedor {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+    
+    .formulario-proyecto-body {
+        padding: 1rem 0;
+    }
 }

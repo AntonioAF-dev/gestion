@@ -5,7 +5,7 @@
 	</li>
 	<!-- Enviar Proyecto -->
 	<li id="enviar-proyectos" class="enviar-proyectos-form">
-		<a href="#" data-target="enviar-proyecto.php">
+		<a href="#" data-target="enviar-proyecto">
 			<i class="menu-icon fa fa-send"></i>
 			<span class="menu-text"> Enviar </span>
 		</a>
@@ -14,7 +14,7 @@
 
 	<!-- Proyectos Catalogados -->
 	<li id="proyectos-catalogados" class="proyecto_catalogado">
-		<a href="#" data-target="proyectos-catalogados">
+		<a href="#" data-target="proyecto_catalogado">
 			<i class="menu-icon fa fa-folder"></i>
 			<span class="menu-text"> Catalogados </span>
 		</a>
@@ -23,7 +23,7 @@
 
 	<!-- Proyectos en Proceso -->
 	<li id="proyectos-en-proceso" class="proyecto_proceso">
-		<a href="#" data-target="proyectos-en-proceso">
+		<a href="#" data-target="proyectos-proceso">
 			<i class="menu-icon fa fa-spinner"></i>
 			<span class="menu-text"> En Proceso </span>
 		</a>
