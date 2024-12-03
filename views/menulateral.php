@@ -12,6 +12,15 @@
 		<b class="arrow"></b>
 	</li>
 
+	<!-- Proyectos Colaborativos -->
+	<li id="colab-proyecto" class="colab-proyectos-form">
+		<a href="#" data-target="colab-proyectos">
+			<i class="menu-icon fa fa-users"></i>
+			<span class="menu-text"> Colaborar </span>
+		</a>
+		<b class="arrow"></b>
+	</li>
+
 	<!-- Proyectos Catalogados -->
 	<li id="proyectos-catalogados" class="proyecto_catalogado">
 		<a href="#" data-target="proyecto_catalogado">

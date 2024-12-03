@@ -6,8 +6,6 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-
-
 if (!isset($_SESSION['id_usuario'])) {
     header("Location: ../views/login.php"); // Redirige al inicio
     exit(); // Always call exit after header redirection
@@ -23,6 +21,7 @@ $row = $resultado->fetch_assoc();
 <html lang="en">
 
 <head>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
     <title>Escritorio - Sistema de Usuarios</title>
@@ -52,13 +51,11 @@ $row = $resultado->fetch_assoc();
     <script src="../assets/js/proceso.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-
     <!--[if lte IE 9]>
 		<link rel="stylesheet" href="assets/css/ace-ie.min.css" />
 		<![endif]-->
 
     <!-- inline styles related to this page -->
-
     <!-- ace settings handler -->
     <script src="../assets/js/ace-extra.min.js"></script>
 
@@ -75,11 +72,8 @@ $row = $resultado->fetch_assoc();
         <div class="navbar-container ace-save-state" id="navbar-container">
             <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
                 <span class="sr-only">Toggle sidebar</span>
-
                 <span class="icon-bar"></span>
-
                 <span class="icon-bar"></span>
-
                 <span class="icon-bar"></span>
             </button>
 
@@ -94,20 +88,16 @@ $row = $resultado->fetch_assoc();
 
             <div class="navbar-buttons navbar-header pull-right" role="navigation">
                 <ul class="nav ace-nav">
-
                     <li class="green dropdown-modal">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <i class="ace-icon fa fa-graduation-cap icon-animated-vertical"></i>
                             <span class="badge badge-success">8</span>
                         </a>
-
                         <ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
                             <li class="dropdown-header">
                                 <i class="ace-icon fa fa-graduation-cap"></i>
                                 8 Inversionistas
                             </li>
-
-
                             <li class="dropdown-footer">
                                 <a href="http:/www.jairogaleas.com/cursos">
                                     Ver inversionistas interesados
@@ -116,19 +106,16 @@ $row = $resultado->fetch_assoc();
                             </li>
                         </ul>
                     </li>
-
                     <li class="purple dropdown-modal">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <i class="ace-icon fa fa-bell icon-animated-bell"></i>
                             <span class="badge badge-important">1</span>
                         </a>
-
                         <ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
                             <li class="dropdown-header">
                                 <i class="ace-icon fa fa-exclamation-triangle"></i>
                                 1 Proyecto Aprobado
                             </li>
-
                             <li class="dropdown-footer">
                                 <a href="https://www.udemy.com/curso-basico-de-programacion-en-php">
                                     Iniciar Proyecto
@@ -137,7 +124,6 @@ $row = $resultado->fetch_assoc();
                             </li>
                         </ul>
                     </li>
-
                     <li class="light-blue dropdown-modal">
                         <a data-toggle="dropdown" href="#" class="dropdown-toggle">
                             <img class="nav-user-photo" src="../assets/images/avatars/user.jpg" />
@@ -351,12 +337,14 @@ $row = $resultado->fetch_assoc();
                 </div><!-- /.page-content -->
             </div>
         </div><!-- /.main-content -->
+
         <!-- /.Pie de pagina -->
 
         <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
             <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
         </a>
     </div><!-- /.main-container -->
+
     <!-- basic scripts -->
 
     <!--[if !IE]> -->
@@ -652,6 +640,8 @@ $row = $resultado->fetch_assoc();
             });
         })
     </script>
+
+    <?php include 'chatbot.php'; ?>
 
 </body>
 
