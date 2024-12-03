@@ -23,137 +23,134 @@
 
         body {
             background-color: var(--background-color);
+            color: var(--text-color);
         }
 
         .header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
         .header h1 {
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 2rem;
+            font-weight: 600;
         }
 
         .nav-menu {
             background: white;
-            padding: 0.5rem;
+            padding: 1rem;
             display: flex;
             justify-content: center;
-            gap: 0.5rem;
-            border-bottom: 1px solid var(--border-color);
+            gap: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .nav-button {
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--primary-color);
-            border-radius: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 2rem;
             background: white;
             color: var(--primary-color);
             cursor: pointer;
-            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .nav-button:hover,
         .nav-button.active {
             background: var(--primary-color);
             color: white;
+            transform: translateY(-2px);
         }
 
         .container {
-            max-width: 1000px;
-            margin: 1rem auto;
+            max-width: 1200px;
+            margin: 2rem auto;
             padding: 0 1rem;
         }
 
         .section {
             background: white;
-            border-radius: 0.5rem;
-            padding: 1rem;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             display: none;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .section.active {
             display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .section-title {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
             color: var(--text-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
             border-bottom: 2px solid var(--primary-color);
             padding-bottom: 0.5rem;
         }
 
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.75rem;
-        }
-
-        .form-full {
-            grid-column: 1 / -1;
-        }
-
         .form-group {
-            margin-bottom: 0.75rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.25rem;
-            font-size: 0.9rem;
-            color: var(--text-color);
+            margin-bottom: 1.5rem;
         }
 
         .form-control {
             width: 100%;
-            padding: 0.5rem;
+            padding: 0.75rem;
             border: 1px solid var(--border-color);
-            border-radius: 0.25rem;
-            font-size: 0.9rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
 
         .form-control:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
         textarea.form-control {
-            height: 80px;
-            resize: none;
-        }
-
-        .teachers-section {
-            background: #f8fafc;
-            padding: 0.75rem;
-            border-radius: 0.25rem;
-            margin: 1rem 0;
+            min-height: 120px;
+            resize: vertical;
         }
 
         .add-teacher {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0.5rem;
-            margin-bottom: 0.75rem;
+            grid-template-columns: 1fr 1fr 1fr auto;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .btn {
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1.5rem;
             border: none;
-            border-radius: 0.25rem;
-            font-size: 0.9rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
         }
 
         .btn-primary {
             background: var(--primary-color);
             color: white;
+            width: 100%;
         }
 
         .btn-add {
@@ -162,82 +159,79 @@
         }
 
         .btn:hover {
-            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .teacher-list {
-            max-height: 200px;
-            overflow-y: auto;
+            margin-top: 2rem;
         }
 
         .teacher-item {
-            padding: 0.5rem;
-            background: white;
+            padding: 1rem;
             border: 1px solid var(--border-color);
-            border-radius: 0.25rem;
-            margin-bottom: 0.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.9rem;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .teacher-info {
+            display: flex;
+            gap: 2rem;
         }
 
         .delete-btn {
             color: #ef4444;
             cursor: pointer;
+            padding: 0.5rem;
             border: none;
             background: none;
-            padding: 0.25rem 0.5rem;
-        }
-
-        .project-list {
-            margin-top: 1rem;
-        }
-
-        .project-card {
-            padding: 0.75rem;
-            border: 1px solid var(--border-color);
-            border-radius: 0.25rem;
-            margin-bottom: 0.5rem;
-            background: white;
-        }
-
-        .project-card h3 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-card p {
-            font-size: 0.9rem;
-            margin-bottom: 0.25rem;
+            font-size: 1.2rem;
         }
 
         .alert {
-            padding: 0.75rem;
-            border-radius: 0.25rem;
-            margin-bottom: 0.75rem;
-            font-size: 0.9rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
             display: none;
         }
 
         .alert-success {
             background-color: #dcfce7;
             color: #166534;
+            border: 1px solid #166534;
         }
 
         .alert-error {
             background-color: #fee2e2;
             color: #991b1b;
+            border: 1px solid #991b1b;
         }
 
-        @media (max-width: 768px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
+        .active-projects {
+            margin-top: 2rem;
+        }
 
-            .add-teacher {
-                grid-template-columns: 1fr;
-            }
+        .project-card {
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
         }
     </style>
 </head>
@@ -257,59 +251,58 @@
     <div class="container">
         <div id="alert" class="alert"></div>
 
+        <!-- Sección Proyectos -->
         <section id="projects" class="section active">
             <h2 class="section-title">Registro de Proyectos</h2>
             <form id="projectForm" onsubmit="return handleProjectSubmit(event)">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label class="form-label">Nombre del Proyecto</label>
-                        <input type="text" class="form-control" id="projectName" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Disciplinas Involucradas</label>
-                        <input type="text" class="form-control" id="disciplines" required>
-                    </div>
-                    <div class="form-group form-full">
-                        <label class="form-label">Objetivos</label>
-                        <textarea class="form-control" id="objectives" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Roles Necesarios</label>
-                        <input type="text" class="form-control" id="roles" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Fecha Inicio</label>
-                        <input type="date" class="form-control" id="startDate" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Fecha Fin</label>
-                        <input type="date" class="form-control" id="endDate" required>
-                    </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="projectName" placeholder="Nombre del Proyecto" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" id="objectives" placeholder="Objetivos" required></textarea>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" id="disciplines" placeholder="Disciplinas Involucradas" required></textarea>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" id="roles" placeholder="Roles Necesarios" required></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" id="startDate" required>
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" id="endDate" required>
                 </div>
 
-                <div class="teachers-section">
+                <div class="form-group">
+                    <h3>Agregar Docente</h3>
                     <div class="add-teacher">
                         <input type="text" class="form-control" id="teacherName" placeholder="Nombre del docente">
                         <input type="text" class="form-control" id="specialty" placeholder="Especialidad">
                         <select class="form-control" id="faculty">
-                            <option value="">Facultad</option>
-                            <option value="1">Ingeniería</option>
-                            <option value="2">Ciencias</option>
-                            <option value="3">Humanidades</option>
+                            <option value="">Seleccione Facultad</option>
+                            <option value="1">Facultad de Ingeniería</option>
+                            <option value="2">Facultad de Ciencias</option>
+                            <option value="3">Facultad de Humanidades</option>
                         </select>
                         <button type="button" class="btn btn-add" onclick="addTeacher()">Agregar</button>
                     </div>
-                    <div id="teacherList" class="teacher-list"></div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Registrar Proyecto</button>
+                <div id="teacherList" class="teacher-list"></div>
+
+                <button type="submit" class="btn btn-primary">REGISTRAR PROYECTO</button>
             </form>
 
-            <div id="projectsList" class="project-list"></div>
+            <div class="active-projects">
+                <h3 class="section-title">Proyectos Activos</h3>
+                <div id="projectsList"></div>
+            </div>
         </section>
     </div>
 
     <script>
+        // Array para almacenar los docentes
         let teachers = [];
         let projects = [];
 
@@ -342,15 +335,17 @@
             const facultyName = faculty.options[faculty.selectedIndex].text;
 
             if (!name || !specialty || !faculty.value) {
-                showAlert('Complete todos los campos del docente', 'error');
+                showAlert('Por favor complete todos los campos del docente', 'error');
                 return;
             }
 
-            teachers.push({
+            const teacher = {
                 name,
                 specialty,
                 faculty: facultyName
-            });
+            };
+
+            teachers.push(teacher);
             updateTeachersList();
             clearTeacherForm();
         }
@@ -368,21 +363,25 @@
 
         function updateTeachersList() {
             const list = document.getElementById('teacherList');
-            list.innerHTML = teachers.map((teacher, index) => `
-                <div class="teacher-item">
-                    <span>${teacher.name} - ${teacher.specialty} - ${teacher.faculty}</span>
+            list.innerHTML = '';
+
+            teachers.forEach((teacher, index) => {
+                const div = document.createElement('div');
+                div.className = 'teacher-item';
+                div.innerHTML = `
+                    <div class="teacher-info">
+                        <span>${teacher.name}</span>
+                        <span>${teacher.specialty}</span>
+                        <span>${teacher.faculty}</span>
+                    </div>
                     <button class="delete-btn" onclick="removeTeacher(${index})">×</button>
-                </div>
-            `).join('');
+                `;
+                list.appendChild(div);
+            });
         }
 
         function handleProjectSubmit(event) {
             event.preventDefault();
-
-            if (teachers.length === 0) {
-                showAlert('Agregue al menos un docente', 'error');
-                return false;
-            }
 
             const project = {
                 name: document.getElementById('projectName').value,
@@ -398,6 +397,7 @@
             updateProjectsList();
             showAlert('Proyecto registrado exitosamente', 'success');
 
+            // Limpiar formulario
             event.target.reset();
             teachers = [];
             updateTeachersList();
@@ -407,15 +407,21 @@
 
         function updateProjectsList() {
             const list = document.getElementById('projectsList');
-            list.innerHTML = projects.map(project => `
-                <div class="project-card">
+            list.innerHTML = '';
+
+            projects.forEach(project => {
+                const div = document.createElement('div');
+                div.className = 'project-card';
+                div.innerHTML = `
                     <h3>${project.name}</h3>
                     <p><strong>Objetivos:</strong> ${project.objectives}</p>
                     <p><strong>Disciplinas:</strong> ${project.disciplines}</p>
-                    <p><strong>Periodo:</strong> ${project.startDate} - ${project.endDate}</p>
+                    <p><strong>Fecha inicio:</strong> ${project.startDate}</p>
+                    <p><strong>Fecha fin:</strong> ${project.endDate}</p>
                     <p><strong>Docentes:</strong> ${project.teachers.map(t => t.name).join(', ')}</p>
-                </div>
-            `).join('');
+                `;
+                list.appendChild(div);
+            });
         }
     </script>
 </body>

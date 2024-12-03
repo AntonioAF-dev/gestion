@@ -1,0 +1,210 @@
+/* Dashboard Styles */
+:root {
+    --primary-color: #2196F3;
+    --success-color: #4CAF50;
+    --warning-color: #FFC107;
+    --danger-color: #F44336;
+    --dark-blue: #1565C0;
+    --light-blue: #E3F2FD;
+}
+
+.dashboard-container {
+    padding: 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+}
+
+/* Stats Cards */
+.stat-widget {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.stat-widget:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
+}
+
+.stat-widget .widget-header {
+    background: linear-gradient(45deg, var(--primary-color), var(--dark-blue));
+    color: white;
+    padding: 15px;
+    border-radius: 15px 15px 0 0;
+}
+
+.stat-widget .widget-body {
+    padding: 20px;
+}
+
+.stat-value {
+    font-size: 2.5em;
+    font-weight: bold;
+    background: linear-gradient(45deg, var(--primary-color), var(--dark-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: pulse 2s infinite;
+}
+
+/* Charts */
+.chart-widget {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.chart-container {
+    position: relative;
+    margin: auto;
+    height: 300px;
+}
+
+/* Project Table */
+.projects-table {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+.projects-table thead th {
+    background: linear-gradient(45deg, var(--primary-color), var(--dark-blue));
+    color: white;
+    padding: 15px;
+    font-weight: 500;
+}
+
+.projects-table tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+.projects-table tbody tr:hover {
+    background-color: var(--light-blue);
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.85em;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.status-badge:hover {
+    transform: scale(1.05);
+}
+
+.status-en-progreso {
+    background: linear-gradient(45deg, #2196F3, #64B5F6);
+    color: white;
+}
+
+.status-retrasado {
+    background: linear-gradient(45deg, #FF9800, #FFB74D);
+    color: white;
+}
+
+.status-completado {
+    background: linear-gradient(45deg, #4CAF50, #81C784);
+    color: white;
+}
+
+/* Progress Bars */
+.progress-container {
+    background: #e0e0e0;
+    border-radius: 20px;
+    height: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(45deg, var(--primary-color), var(--dark-blue));
+    transition: width 1s ease-in-out;
+    position: relative;
+}
+
+.progress-label {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .stat-widget {
+        margin-bottom: 20px;
+    }
+
+    .chart-container {
+        height: 200px;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--dark-blue);
+}
+
+/* Loading Animation */
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

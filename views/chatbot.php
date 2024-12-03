@@ -2,29 +2,23 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-
 // Configuración de OpenAI API
 define('OPENAI_API_URL', 'https://api.openai.com/v1/chat/completions');
 define('OPENAI_API_KEY', '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');
-
 if (!isset($_SESSION['chat_history'])) {
     $_SESSION['chat_history'] = array();
 }
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['message'])) {
     $userMessage = strip_tags($_POST['message']);
     $botResponse = getBotResponse($userMessage);
-
     $chatEntry = array(
         'user' => $userMessage,
         'bot' => $botResponse
     );
-
     array_push($_SESSION['chat_history'], $chatEntry);
     echo json_encode($chatEntry);
     exit;
 }
-
 function getBotResponse($message)
 {
     $data = array(
@@ -42,7 +36,6 @@ function getBotResponse($message)
         'temperature' => 0.7,
         'max_tokens' => 250
     );
-
     $ch = curl_init(OPENAI_API_URL);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
@@ -52,16 +45,12 @@ function getBotResponse($message)
         'Content-Type: application/json'
     ));
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Solo para desarrollo local
-
     try {
         $response = curl_exec($ch);
-
         if (curl_errno($ch)) {
             throw new Exception(curl_error($ch));
         }
-
         $responseData = json_decode($response, true);
-
         if (isset($responseData['choices'][0]['message']['content'])) {
             return $responseData['choices'][0]['message']['content'];
         } else {
@@ -76,7 +65,6 @@ function getBotResponse($message)
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -93,10 +81,12 @@ function getBotResponse($message)
             background: white;
             border-radius: 15px;
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-            display: none;
+            display: block;
+            /* Cambiado de 'none' a 'block' */
             z-index: 1000;
             font-family: system-ui, -apple-system, sans-serif;
         }
+
 
         .chat-header {
             background: linear-gradient(135deg, #00A3FF 0%, #0066FF 100%);
@@ -268,12 +258,11 @@ function getBotResponse($message)
 
 <body>
     <div class="chat-toggle" onclick="toggleChat()">
-        💬
+        🤖
     </div>
-
     <div class="chat-container">
         <div class="chat-header">
-            <span>Asistente Virtual</span>
+            <span>Asistente Virtual Digitaliza UDH</span>
             <span onclick="toggleChat()" style="cursor:pointer">✕</span>
         </div>
         <div class="chat-body">
@@ -300,13 +289,18 @@ function getBotResponse($message)
             </button>
         </div>
     </div>
-
     <script>
+        // Abrir chat automáticamente después de 2 segundos
+        setTimeout(() => {
+            if (document.querySelector('.chat-container').style.display === 'none') {
+                toggleChat();
+            }
+        }, 2000);
+
         function toggleChat() {
             const chatContainer = document.querySelector('.chat-container');
             const isHidden = chatContainer.style.display === 'none';
             chatContainer.style.display = isHidden ? 'block' : 'none';
-
             if (isHidden) {
                 document.getElementById('userMessage').focus();
             }
@@ -325,22 +319,17 @@ function getBotResponse($message)
         function sendMessage() {
             const input = document.getElementById('userMessage');
             const message = input.value.trim();
-
             if (!message) return;
-
             const chatBody = document.querySelector('.chat-body');
-
             // Mensaje del usuario
             const userDiv = document.createElement('div');
             userDiv.className = 'message user-message';
             userDiv.textContent = message;
             chatBody.appendChild(userDiv);
-
             // Limpiar input y mostrar typing
             input.value = '';
             showTyping();
             input.focus();
-
             // Enviar al servidor
             fetch(window.location.href, {
                     method: 'POST',
@@ -352,7 +341,6 @@ function getBotResponse($message)
                 .then(response => response.json())
                 .then(data => {
                     hideTyping();
-
                     const botDiv = document.createElement('div');
                     botDiv.className = 'message bot-message';
                     botDiv.textContent = data.bot;
@@ -362,7 +350,6 @@ function getBotResponse($message)
                 .catch(error => {
                     console.error('Error:', error);
                     hideTyping();
-
                     const errorDiv = document.createElement('div');
                     errorDiv.className = 'message bot-message';
                     errorDiv.textContent = 'Lo siento, ocurrió un error. Por favor, intenta nuevamente.';
@@ -370,14 +357,12 @@ function getBotResponse($message)
                     chatBody.scrollTop = chatBody.scrollHeight;
                 });
         }
-
         // Enter para enviar
         document.getElementById('userMessage').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 sendMessage();
             }
         });
-
         // Abrir chat automáticamente después de 2 segundos
         setTimeout(() => {
             if (document.querySelector('.chat-container').style.display === 'none') {

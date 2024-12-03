@@ -16,6 +16,7 @@ $row = $resultado->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
@@ -51,6 +52,7 @@ $row = $resultado->fetch_assoc();
 		<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
 </head>
+
 <body class="no-skin">
     <div id="navbar" class="navbar navbar-default          ace-save-state">
         <div class="navbar-container ace-save-state" id="navbar-container">
@@ -152,16 +154,16 @@ $row = $resultado->fetch_assoc();
             </script>
             <div class="sidebar-shortcuts" id="sidebar-shortcuts">
                 <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-                    <button class="btn btn-success" onclick="window.location.href='planeacion.html'">
+                    <button class="btn btn-success" onclick="window.location.href='view/dashboard.php'">
                         <i class="ace-icon fa fa-signal"></i>
                     </button>
-                    <button class="btn btn-info" onclick="window.location.href='analisis.html'">
+                    <button class="btn btn-info" onclick="window.location.href='view/analysis.php'">
                         <i class="ace-icon fa fa-pencil"></i>
                     </button>
-                    <button class="btn btn-warning" onclick="window.location.href='colaboracion.html'">
+                    <button class="btn btn-warning" onclick="window.location.href='view/colaboracion.php'">
                         <i class="ace-icon fa fa-users"></i>
                     </button>
-                    <button class="btn btn-danger" onclick="window.location.href='innovacion.html'">
+                    <button class="btn btn-danger" onclick="window.location.href='view/innovacion.php'">
                         <i class="ace-icon fa fa-cogs"></i>
                     </button>
                 </div>
