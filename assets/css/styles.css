@@ -253,6 +253,11 @@ main {
 
 /*estilos del main content despues del login*/
 
+#dynamic-content {
+    padding: 15px;
+    background-color: #fff;
+    min-height: 100vh;
+}
 
 
 
@@ -264,7 +269,8 @@ main {
     width: 100%;
     padding: 2rem;
     box-sizing: border-box;
-    background-color: #f9f9f9; /* Fondo claro */
+    background-color: #f9f9f9;
+    /* Fondo claro */
 }
 
 /* Título */
@@ -279,8 +285,10 @@ main {
 /* Cuadrícula de cards */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Tres columnas fijas */
-    gap: 1.5rem; /* Espaciado entre cards */
+    grid-template-columns: repeat(3, 1fr);
+    /* Tres columnas fijas */
+    gap: 1.5rem;
+    /* Espaciado entre cards */
     justify-content: center;
     align-items: stretch;
     width: 100%;
@@ -289,25 +297,33 @@ main {
 
 /* Estilo de las cards */
 .card {
-    background-color: #ffffff; /* Fondo blanco */
-    border: 1px solid #e0e0e0; /* Borde sutil */
-    border-radius: 8px; /* Esquinas redondeadas */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    background-color: #ffffff;
+    /* Fondo blanco */
+    border: 1px solid #e0e0e0;
+    /* Borde sutil */
+    border-radius: 8px;
+    /* Esquinas redondeadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra ligera */
     padding: 1rem;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación para hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Animación para hover */
 }
 
 .card:hover {
-    transform: translateY(-5px); /* Levanta la card */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    transform: translateY(-5px);
+    /* Levanta la card */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    /* Sombra más pronunciada */
 }
 
 /* Título de las cards */
 .card h3 {
     font-family: 'Poppins', sans-serif;
     font-size: 1.25rem;
-    color: #030f1a; /* Azul moderno */
+    color: #030f1a;
+    /* Azul moderno */
     margin-bottom: 0.5rem;
 }
 
@@ -315,7 +331,8 @@ main {
 .card p {
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
-    color: #666666; /* Gris oscuro */
+    color: #666666;
+    /* Gris oscuro */
     margin-bottom: 1rem;
 }
 
@@ -334,20 +351,23 @@ main {
 }
 
 .card .btn:hover {
-    background-color: #449248; /* Azul más oscuro */
+    background-color: #449248;
+    /* Azul más oscuro */
 }
 
 /* Ajuste para pantallas medianas */
 @media (max-width: 768px) {
     .card-grid {
-        grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+        grid-template-columns: repeat(2, 1fr);
+        /* Dos columnas */
     }
 }
 
 /* Ajuste para pantallas pequeñas */
 @media (max-width: 480px) {
     .card-grid {
-        grid-template-columns: 1fr; /* Una columna */
+        grid-template-columns: 1fr;
+        /* Una columna */
     }
 }
 
@@ -365,23 +385,36 @@ main {
 }
 
 .h2-public {
-    font-family: 'Poppins', sans-serif; /* Tipografía moderna y amigable */
-    font-size: 2rem; /* Tamaño destacado pero no exagerado */
-    color: #1e88e5; /* Azul moderno y profesional */
-    text-transform: capitalize; /* Mayúsculas iniciales */
-    background: linear-gradient(90deg, #1e88e5, #42a5f5, #64b5f6); /* Degradado sutil */
-    background-clip: text; /* Aplicar degradado al texto */
+    font-family: 'Poppins', sans-serif;
+    /* Tipografía moderna y amigable */
+    font-size: 2rem;
+    /* Tamaño destacado pero no exagerado */
+    color: #1e88e5;
+    /* Azul moderno y profesional */
+    text-transform: capitalize;
+    /* Mayúsculas iniciales */
+    background: linear-gradient(90deg, #1e88e5, #42a5f5, #64b5f6);
+    /* Degradado sutil */
+    background-clip: text;
+    /* Aplicar degradado al texto */
     -webkit-background-clip: text;
-    color: transparent; /* Solo se ve el degradado */
-    margin-bottom: 1rem; /* Espaciado inferior */
-    text-align: center; /* Centrar el texto */
-    border-bottom: 2px solid #1e88e5; /* Línea inferior decorativa */
-    padding-bottom: 0.5rem; /* Separación para la línea */
-    transition: color 0.3s ease; /* Transición suave en el hover */
+    color: transparent;
+    /* Solo se ve el degradado */
+    margin-bottom: 1rem;
+    /* Espaciado inferior */
+    text-align: center;
+    /* Centrar el texto */
+    border-bottom: 2px solid #1e88e5;
+    /* Línea inferior decorativa */
+    padding-bottom: 0.5rem;
+    /* Separación para la línea */
+    transition: color 0.3s ease;
+    /* Transición suave en el hover */
 }
 
 .h2-public:hover {
-    color: #64b5f6; /* Cambia el color en el hover */
+    color: #64b5f6;
+    /* Cambia el color en el hover */
 }
 
 

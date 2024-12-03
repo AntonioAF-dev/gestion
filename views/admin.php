@@ -32,6 +32,7 @@ $row = $resultado->fetch_assoc();
 
 
     <!-- bootstrap & fontawesome -->
+    <script src="../assets/js/menu-handler.js"></script>
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../assets/font-awesome/4.5.0/css/font-awesome.min.css" />
 
@@ -48,6 +49,8 @@ $row = $resultado->fetch_assoc();
 		<![endif]-->
     <link rel="stylesheet" href="../assets/css/ace-skins.min.css" />
     <link rel="stylesheet" href="../assets/css/ace-rtl.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
     <!--[if lte IE 9]>
 		<link rel="stylesheet" href="assets/css/ace-ie.min.css" />
@@ -152,7 +155,7 @@ $row = $resultado->fetch_assoc();
 
 
                             <li>
-                                <a href="#">
+                                <a href="update_profile.php" target="_blank">
                                     <i class="ace-icon fa fa-user"></i>
                                     Perfil
                                 </a>
@@ -192,22 +195,23 @@ $row = $resultado->fetch_assoc();
 
             <div class="sidebar-shortcuts" id="sidebar-shortcuts">
                 <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-                    <button class="btn btn-success">
+                    <button class="btn btn-success" onclick="window.location.href='planeacion.html'">
                         <i class="ace-icon fa fa-signal"></i>
                     </button>
 
-                    <button class="btn btn-info">
+                    <button class="btn btn-info" onclick="window.location.href='analisis.html'">
                         <i class="ace-icon fa fa-pencil"></i>
                     </button>
 
-                    <button class="btn btn-warning">
+                    <button class="btn btn-warning" onclick="window.location.href='colaboracion.html'">
                         <i class="ace-icon fa fa-users"></i>
                     </button>
 
-                    <button class="btn btn-danger">
+                    <button class="btn btn-danger" onclick="window.location.href='innovacion.html'">
                         <i class="ace-icon fa fa-cogs"></i>
                     </button>
                 </div>
+
 
                 <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
                     <span class="btn btn-success"></span>
@@ -220,11 +224,13 @@ $row = $resultado->fetch_assoc();
                 </div>
             </div><!-- /.sidebar-shortcuts -->
 
-            <ul class="nav nav-list"><!-- Menu Lateral -->
+            <!-- Menu Lateral -->
+            <?php
+            include 'menulateral.php';
+            ?>
+            <!-- MOSTRAR EL MENU  -->
 
-                <!-- MOSTRAR EL MENU  -->
-
-            </ul><!-- /.nav-list -->
+            <!-- /.nav-list -->
 
             <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
                 <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
@@ -268,6 +274,7 @@ $row = $resultado->fetch_assoc();
                                             <option data-skin="skin-2" value="#C6487E">#C6487E</option>
                                             <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
                                         </select>
+
                                     </div>
                                     <span>&nbsp; Cambiar Color</span>
                                 </div>
@@ -325,26 +332,21 @@ $row = $resultado->fetch_assoc();
                             Preselección de Proyectos: ¡Envía el Tuyo!
                             <small>
                                 <i class="ace-icon fa fa-angle-double-right"></i>
-
                             </small>
                         </h1>
                     </div><!-- /.page-header -->
 
+                    <!-- Aquí va el contenido dianmico de tu página -->
                     <div class="row">
                         <div class="col-xs-12">
-                            <!-- PAGE CONTENT BEGINS -->
-                            <?php
-                            $navbarH_path = ROOT_PATH . 'investigaciones.php';
-                            if (file_exists($navbarH_path)) {
-                                include($navbarH_path);
-                            } else {
-                                echo "No se encontró el archivo subnavbar.php en la ruta: " . $navbarH_path;
-                            }
-                            ?>
+                            <div id="dynamic-content">
+                                <?php
+                                include 'view/enviar-proyecto.php';
+                                ?><!-- Aquí se cargará el contenido dinámico -->
+                            </div>
+                        </div>
+                    </div>
 
-                            <!-- PAGE CONTENT ENDS -->
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
                 </div><!-- /.page-content -->
             </div>
         </div><!-- /.main-content -->
@@ -647,7 +649,6 @@ $row = $resultado->fetch_assoc();
                     $(this).addClass('dropup');
                 else $(this).removeClass('dropup');
             });
-
         })
     </script>
 

@@ -38,41 +38,31 @@ $(document).ready(function () {
     });
 });
 
-/* ------------------------ */
-$(document).ready(function () {
-    $('#searchBtn').on('click', function () {
-        const formData = {
-            titleCode: $('#titleCode').val(),
-            researchType: $('#researchType').val(),
-            researchUnit: $('#researchUnit').val(),
-        };
+document.addEventListener('DOMContentLoaded', function () {
+    const menuLinks = document.querySelectorAll('.nav-list a');
 
-        $.ajax({
-            url: 'buscar.php', // Archivo PHP para procesar la búsqueda
-            type: 'POST',
-            data: formData,
-            dataType: 'json',
-            success: function (response) {
-                let rows = '';
-                if (response.length > 0) {
-                    response.forEach((item, index) => {
-                        rows += `<tr>
-                            <td>${index + 1}</td>
-                            <td>${item.title}</td>
-                            <td>${item.researchCenter}</td>
-                            <td>${item.date}</td>
-                            <td>${item.code}</td>
-                            <td>${item.details}</td>
-                        </tr>`;
-                    });
-                } else {
-                    rows = `<tr><td colspan="6" class="text-center">No se encontraron resultados</td></tr>`;
-                }
-                $('#resultsTable').html(rows);
-            },
-            error: function () {
-                alert('Hubo un error al realizar la búsqueda.');
-            }
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // Obtener el archivo destino del atributo data-target
+            const target = this.getAttribute('data-target');
+
+            // Realizar la solicitud AJAX para cargar el contenido
+            fetch(target)
+                .then(response => {
+                    if (!response.ok) throw new Error('Error al cargar el contenido');
+                    return response.text();
+                })
+                .then(data => {
+                    // Insertar el contenido dinámico en el contenedor
+                    document.getElementById('dynamic-content').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error cargando contenido dinámico:', error);
+                    document.getElementById('dynamic-content').innerHTML = '<p>Error al cargar contenido.</p>';
+                });
         });
     });
 });
+
