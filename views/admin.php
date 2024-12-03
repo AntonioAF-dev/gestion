@@ -5,43 +5,32 @@ define('ROOT_PATH', __DIR__ . '/'); // Define ROOT_PATH como la ruta del directo
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-
 if (!isset($_SESSION['id_usuario'])) {
     header("Location: ../views/login.php"); // Redirige al inicio
     exit(); // Always call exit after header redirection
 }
-
 $iduser = $_SESSION['id_usuario'];
 $sql = "SELECT idusuarios, Nombre FROM usuarios WHERE idusuarios = '$iduser'";
 $resultado = $conexion->query($sql);
 $row = $resultado->fetch_assoc();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
     <title>Escritorio - Sistema de Usuarios</title>
-
     <meta name="description" content="overview &amp; stats" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-
     <link rel="stylesheet" href="../assets/css/back.css">
     <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../assets/font-awesome/4.5.0/css/font-awesome.min.css" />
-
     <!-- page specific plugin styles -->
-
     <!-- text fonts -->
     <link rel="stylesheet" href="../assets/css/fonts.googleapis.com.css" />
-
     <!-- ace styles -->
     <link rel="stylesheet" href="../assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
-
     <!--[if lte IE 9]>
     <link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet" />
     <![endif]-->
@@ -50,23 +39,18 @@ $row = $resultado->fetch_assoc();
     <script src="../assets/js/menu-handler.js"></script>
     <script src="../assets/js/proceso.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <!--[if lte IE 9]>
 		<link rel="stylesheet" href="assets/css/ace-ie.min.css" />
 		<![endif]-->
-
     <!-- inline styles related to this page -->
     <!-- ace settings handler -->
     <script src="../assets/js/ace-extra.min.js"></script>
-
     <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
-
     <!--[if lte IE 8]>
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
 </head>
-
 <body class="no-skin">
     <div id="navbar" class="navbar navbar-default          ace-save-state">
         <div class="navbar-container ace-save-state" id="navbar-container">
@@ -76,7 +60,6 @@ $row = $resultado->fetch_assoc();
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-
             <div class="navbar-header pull-left">
                 <a href="admin.php" class="navbar-brand">
                     <small>
@@ -85,7 +68,6 @@ $row = $resultado->fetch_assoc();
                     </small>
                 </a>
             </div>
-
             <div class="navbar-buttons navbar-header pull-right" role="navigation">
                 <ul class="nav ace-nav">
                     <li class="green dropdown-modal">
@@ -134,22 +116,16 @@ $row = $resultado->fetch_assoc();
                                 echo utf8_decode($row['Nombre']);
                                 ?>
                             </span>
-
                             <i class="ace-icon fa fa-caret-down"></i>
                         </a>
-
                         <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-
-
                             <li>
                                 <a href="update_profile.php" target="_blank">
                                     <i class="ace-icon fa fa-user"></i>
                                     Perfil
                                 </a>
                             </li>
-
                             <li class="divider"></li>
-
                             <li>
                                 <a href="logout.php">
                                     <i class="ace-icon fa fa-power-off"></i>
@@ -162,68 +138,50 @@ $row = $resultado->fetch_assoc();
             </div>
         </div><!-- /.navbar-container -->
     </div>
-
-
-
-
     <div class="main-container ace-save-state" id="main-container">
         <script type="text/javascript">
             try {
                 ace.settings.loadState('main-container')
             } catch (e) {}
         </script>
-
         <div id="sidebar" class="sidebar                  responsive                    ace-save-state">
             <script type="text/javascript">
                 try {
                     ace.settings.loadState('sidebar')
                 } catch (e) {}
             </script>
-
             <div class="sidebar-shortcuts" id="sidebar-shortcuts">
                 <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
                     <button class="btn btn-success" onclick="window.location.href='planeacion.html'">
                         <i class="ace-icon fa fa-signal"></i>
                     </button>
-
                     <button class="btn btn-info" onclick="window.location.href='analisis.html'">
                         <i class="ace-icon fa fa-pencil"></i>
                     </button>
-
                     <button class="btn btn-warning" onclick="window.location.href='colaboracion.html'">
                         <i class="ace-icon fa fa-users"></i>
                     </button>
-
                     <button class="btn btn-danger" onclick="window.location.href='innovacion.html'">
                         <i class="ace-icon fa fa-cogs"></i>
                     </button>
                 </div>
-
-
                 <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
                     <span class="btn btn-success"></span>
-
                     <span class="btn btn-info"></span>
-
                     <span class="btn btn-warning"></span>
-
                     <span class="btn btn-danger"></span>
                 </div>
             </div><!-- /.sidebar-shortcuts -->
-
             <!-- Menu Lateral -->
             <?php
             include 'menulateral.php';
             ?>
             <!-- MOSTRAR EL MENU  -->
-
             <!-- /.nav-list -->
-
             <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
                 <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
             </div>
         </div>
-
         <div class="main-content">
             <div class="main-content-inner">
                 <div class="breadcrumbs ace-save-state" id="breadcrumbs">
@@ -234,7 +192,6 @@ $row = $resultado->fetch_assoc();
                         </li>
                         <li class="active">Proyectos</li>
                     </ul><!-- /.breadcrumb -->
-
                     <div class="nav-search" id="nav-search">
                         <form class="form-search">
                             <span class="input-icon">
@@ -244,13 +201,11 @@ $row = $resultado->fetch_assoc();
                         </form>
                     </div><!-- /.nav-search -->
                 </div>
-
                 <div class="page-content">
                     <div class="ace-settings-container" id="ace-settings-container">
                         <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
                             <i class="ace-icon fa fa-cog bigger-130"></i>
                         </div>
-
                         <div class="ace-settings-box clearfix" id="ace-settings-box">
                             <div class="pull-left width-50">
                                 <div class="ace-settings-item">
@@ -261,31 +216,25 @@ $row = $resultado->fetch_assoc();
                                             <option data-skin="skin-2" value="#C6487E">#C6487E</option>
                                             <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
                                         </select>
-
                                     </div>
                                     <span>&nbsp; Cambiar Color</span>
                                 </div>
-
                                 <div class="ace-settings-item">
                                     <input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-navbar" autocomplete="off" />
                                     <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
                                 </div>
-
                                 <div class="ace-settings-item">
                                     <input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-sidebar" autocomplete="off" />
                                     <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
                                 </div>
-
                                 <div class="ace-settings-item">
                                     <input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-breadcrumbs" autocomplete="off" />
                                     <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
                                 </div>
-
                                 <div class="ace-settings-item">
                                     <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" autocomplete="off" />
                                     <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
                                 </div>
-
                                 <div class="ace-settings-item">
                                     <input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-add-container" autocomplete="off" />
                                     <label class="lbl" for="ace-settings-add-container">
@@ -294,18 +243,15 @@ $row = $resultado->fetch_assoc();
                                     </label>
                                 </div>
                             </div><!-- /.pull-left -->
-
                             <div class="pull-left width-50">
                                 <div class="ace-settings-item">
                                     <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" autocomplete="off" />
                                     <label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
                                 </div>
-
                                 <div class="ace-settings-item">
                                     <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" autocomplete="off" />
                                     <label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
                                 </div>
-
                                 <div class="ace-settings-item">
                                     <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" autocomplete="off" />
                                     <label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
@@ -313,7 +259,6 @@ $row = $resultado->fetch_assoc();
                             </div><!-- /.pull-left -->
                         </div><!-- /.ace-settings-box -->
                     </div><!-- /.ace-settings-container -->
-
                     <div class="page-header">
                         <h1>
                             Preselección de Proyectos: ¡Envía el Tuyo!
@@ -322,7 +267,6 @@ $row = $resultado->fetch_assoc();
                             </small>
                         </h1>
                     </div><!-- /.page-header -->
-
                     <!-- Aquí va el contenido dianmico de tu página -->
                     <div class="row">
                         <div class="col-xs-12">
@@ -333,25 +277,18 @@ $row = $resultado->fetch_assoc();
                             </div>
                         </div>
                     </div>
-
                 </div><!-- /.page-content -->
             </div>
         </div><!-- /.main-content -->
-
         <!-- /.Pie de pagina -->
-
         <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
             <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
         </a>
     </div><!-- /.main-container -->
-
     <!-- basic scripts -->
-
     <!--[if !IE]> -->
     <script src="../assets/js/jquery-2.1.4.min.js"></script>
-
     <!-- <![endif]-->
-
     <!--[if IE]>
 <script src="assets/js/jquery-1.11.3.min.js"></script>
 <![endif]-->
@@ -359,9 +296,7 @@ $row = $resultado->fetch_assoc();
         if ('ontouchstart' in document.documentElement) document.write("<script src='../assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
     </script>
     <script src="../assets/js/bootstrap.min.js"></script>
-
     <!-- page specific plugin scripts -->
-
     <!--[if lte IE 8]>
 		<script src="assets/js/excanvas.min.js"></script>
 		<![endif]-->
@@ -372,13 +307,9 @@ $row = $resultado->fetch_assoc();
     <script src="../assets/js/jquery.flot.min.js"></script>
     <script src="../assets/js/jquery.flot.pie.min.js"></script>
     <script src="../assets/js/jquery.flot.resize.min.js"></script>
-
-
-
     <!-- ace scripts -->
     <script src="../assets/js/ace-elements.min.js"></script>
     <script src="../assets/js/ace.min.js"></script>
-
     <!-- inline scripts related to this page -->
     <script type="text/javascript">
         jQuery(function($) {
@@ -397,7 +328,6 @@ $row = $resultado->fetch_assoc();
                     size: size
                 });
             })
-
             $('.sparkline').each(function() {
                 var $box = $(this).closest('.infobox');
                 var barColor = !$box.hasClass('infobox-dark') ? $box.css('color') : '#FFF';
@@ -408,12 +338,9 @@ $row = $resultado->fetch_assoc();
                     chartRangeMin: $(this).data('min') || 0
                 });
             });
-
-
             //flot chart resize plugin, somehow manipulates default browser resize event to optimize it!
             //but sometimes it brings up errors with normal resize event handlers
             $.resize.throttleWindow = false;
-
             var placeholder = $('#piechart-placeholder').css({
                 'width': '90%',
                 'min-height': '150px'
@@ -474,19 +401,15 @@ $row = $resultado->fetch_assoc();
                 })
             }
             drawPieChart(placeholder, data);
-
             /**
             we saved the drawing function and the data to redraw with different position later when switching to RTL mode dynamically
             so that's not needed actually.
             */
             placeholder.data('chart', data);
             placeholder.data('draw', drawPieChart);
-
-
             //pie chart tooltip example
             var $tooltip = $("<div class='tooltip top in'><div class='tooltip-inner'></div></div>").hide().appendTo('body');
             var previousPoint = null;
-
             placeholder.on('plothover', function(event, pos, item) {
                 if (item) {
                     if (previousPoint != item.seriesIndex) {
@@ -502,33 +425,23 @@ $row = $resultado->fetch_assoc();
                     $tooltip.hide();
                     previousPoint = null;
                 }
-
             });
-
-            /////////////////////////////////////
+            ///////////////////////////////////////////////////
             $(document).one('ajaxloadstart.page', function(e) {
                 $tooltip.remove();
             });
-
-
-
-
             var d1 = [];
             for (var i = 0; i < Math.PI * 2; i += 0.5) {
                 d1.push([i, Math.sin(i)]);
             }
-
             var d2 = [];
             for (var i = 0; i < Math.PI * 2; i += 0.5) {
                 d2.push([i, Math.cos(i)]);
             }
-
             var d3 = [];
             for (var i = 0; i < Math.PI * 2; i += 0.2) {
                 d3.push([i, Math.tan(i)]);
             }
-
-
             var sales_charts = $('#sales-charts').css({
                 'width': '100%',
                 'height': '220px'
@@ -573,8 +486,6 @@ $row = $resultado->fetch_assoc();
                     borderColor: '#555'
                 }
             });
-
-
             $('#recent-box [data-rel="tooltip"]').tooltip({
                 placement: tooltip_placement
             });
@@ -584,20 +495,14 @@ $row = $resultado->fetch_assoc();
                 var $parent = $source.closest('.tab-content')
                 var off1 = $parent.offset();
                 var w1 = $parent.width();
-
                 var off2 = $source.offset();
                 //var w2 = $source.width();
-
                 if (parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2)) return 'right';
                 return 'left';
             }
-
-
             $('.dialogs,.comments').ace_scroll({
                 size: 300
             });
-
-
             //Android's default browser somehow is confused when tapping on label which will lead to dragging the task
             //so disable dragging when clicking on label
             var agent = navigator.userAgent.toLowerCase();
@@ -609,7 +514,6 @@ $row = $resultado->fetch_assoc();
                     if (label == e.target || $.contains(label, e.target)) e.stopImmediatePropagation();
                 });
             }
-
             $('#tasks').sortable({
                 opacity: 0.8,
                 revert: true,
@@ -627,8 +531,6 @@ $row = $resultado->fetch_assoc();
                 if (this.checked) $(this).closest('li').addClass('selected');
                 else $(this).closest('li').removeClass('selected');
             });
-
-
             //show the dropdowns on top or bottom depending on window height and menu position
             $('#task-tab .dropdown-hover').on('mouseenter', function(e) {
                 var offset = $(this).offset();
@@ -640,9 +542,7 @@ $row = $resultado->fetch_assoc();
             });
         })
     </script>
-
     <?php include 'chatbot.php'; ?>
-
 </body>
 
 </html>
