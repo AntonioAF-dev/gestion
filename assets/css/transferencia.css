@@ -1,0 +1,94 @@
+.main-encuesta,
+.encuestas-body{
+    height: 500px;
+}
+
+.header-en {
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+}
+
+.headh1 {
+    font-size: 2rem;
+    margin: 0;
+    color: black;
+}
+
+.ph1-2 {
+    font-size: 1rem;
+    color: black;
+}
+
+
+.survey-form {
+    background: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+.question label {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.rating {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    padding: 10px 15px;
+    border-radius: 50%;
+    background: #e9ecef;
+    cursor: pointer;
+}
+
+.rating input:checked+label {
+    background: #007bff;
+    color: #fff;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.submit-btn:hover {
+    background: #0056b3;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    font-size: 0.9rem;
+}

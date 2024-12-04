@@ -287,6 +287,11 @@ $row = $resultado->fetch_assoc();
             <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
         </a>
     </div><!-- /.main-container -->
+    <?php
+    
+    include 'chatbot-standalone.php';
+    
+    ?>
     <!-- basic scripts -->
     <!--[if !IE]> -->
     <script src="../assets/js/jquery-2.1.4.min.js"></script>
@@ -544,7 +549,6 @@ $row = $resultado->fetch_assoc();
             });
         })
     </script>
-    <?php include 'chatbot.php'; ?>
 </body>
 
 </html>
