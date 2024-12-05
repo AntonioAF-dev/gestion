@@ -4,426 +4,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Proyectos Colaborativos</title>
+    <title>Foro de Discusión - Proyectos de Investigación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --background-color: #f8fafc;
-            --text-color: #1e293b;
-            --border-color: #e2e8f0;
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #ecf0f1;
+            --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, sans-serif;
         }
 
         body {
-            background-color: var(--background-color);
-            color: var(--text-color);
-        }
-
-        .header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .header h1 {
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 600;
-        }
-
-        .nav-menu {
-            background: white;
-            padding: 1rem;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        .nav-button {
-            padding: 0.75rem 1.5rem;
-            border: 2px solid var(--primary-color);
-            border-radius: 2rem;
-            background: white;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--background-color) 0%, #f8f9fa 100%);
             color: var(--primary-color);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .nav-button:hover,
-        .nav-button.active {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .section {
-            background: white;
-            border-radius: 1rem;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            display: none;
-        }
-
-        .section.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .section-title {
-            color: var(--text-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            font-weight: 600;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-control {
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--border-color);
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .add-teacher {
+        .card-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr auto;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-color);
+        }
+
+        .card h2 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: #6c757d;
+            margin-bottom: 15px;
         }
 
         .btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 0.5rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background: var(--primary-color);
-            color: white;
-            width: 100%;
-        }
-
-        .btn-add {
+            display: inline-block;
             background: var(--secondary-color);
             color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: var(--primary-color);
         }
 
-        .teacher-list {
-            margin-top: 2rem;
+        .author {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
         }
 
-        .teacher-item {
-            padding: 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            animation: slideIn 0.3s ease;
+        .date {
+            font-size: 0.8rem;
+            color: #999;
         }
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .new-post-form {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: var(--card-shadow);
         }
 
-        .teacher-info {
-            display: flex;
-            gap: 2rem;
+        .form-group {
+            margin-bottom: 15px;
         }
 
-        .delete-btn {
-            color: #ef4444;
-            cursor: pointer;
-            padding: 0.5rem;
-            border: none;
-            background: none;
-            font-size: 1.2rem;
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
         }
 
-        .alert {
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
-            display: none;
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
         }
 
-        .alert-success {
-            background-color: #dcfce7;
-            color: #166534;
-            border: 1px solid #166534;
-        }
-
-        .alert-error {
-            background-color: #fee2e2;
-            color: #991b1b;
-            border: 1px solid #991b1b;
-        }
-
-        .active-projects {
-            margin-top: 2rem;
-        }
-
-        .project-card {
-            padding: 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
         }
     </style>
 </head>
 
 <body>
-    <header class="header">
-        <h1>PORTAL DE PROYECTOS COLABORATIVOS</h1>
-    </header>
-
-    <nav class="nav-menu">
-        <button class="nav-button active" onclick="showSection('projects')">Proyectos</button>
-        <button class="nav-button" onclick="showSection('teachers')">Docentes</button>
-        <button class="nav-button" onclick="showSection('forum')">Foro</button>
-        <button class="nav-button" onclick="showSection('calendar')">Calendario</button>
-    </nav>
-
     <div class="container">
-        <div id="alert" class="alert"></div>
-
-        <!-- Sección Proyectos -->
-        <section id="projects" class="section active">
-            <h2 class="section-title">Registro de Proyectos</h2>
-            <form id="projectForm" onsubmit="return handleProjectSubmit(event)">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="projectName" placeholder="Nombre del Proyecto" required>
-                </div>
-                <div class="form-group">
-                    <textarea class="form-control" id="objectives" placeholder="Objetivos" required></textarea>
-                </div>
-                <div class="form-group">
-                    <textarea class="form-control" id="disciplines" placeholder="Disciplinas Involucradas" required></textarea>
-                </div>
-                <div class="form-group">
-                    <textarea class="form-control" id="roles" placeholder="Roles Necesarios" required></textarea>
-                </div>
-                <div class="form-group">
-                    <input type="date" class="form-control" id="startDate" required>
-                </div>
-                <div class="form-group">
-                    <input type="date" class="form-control" id="endDate" required>
-                </div>
-
-                <div class="form-group">
-                    <h3>Agregar Docente</h3>
-                    <div class="add-teacher">
-                        <input type="text" class="form-control" id="teacherName" placeholder="Nombre del docente">
-                        <input type="text" class="form-control" id="specialty" placeholder="Especialidad">
-                        <select class="form-control" id="faculty">
-                            <option value="">Seleccione Facultad</option>
-                            <option value="1">Facultad de Ingeniería</option>
-                            <option value="2">Facultad de Ciencias</option>
-                            <option value="3">Facultad de Humanidades</option>
-                        </select>
-                        <button type="button" class="btn btn-add" onclick="addTeacher()">Agregar</button>
-                    </div>
-                </div>
-
-                <div id="teacherList" class="teacher-list"></div>
-
-                <button type="submit" class="btn btn-primary">REGISTRAR PROYECTO</button>
-            </form>
-
-            <div class="active-projects">
-                <h3 class="section-title">Proyectos Activos</h3>
-                <div id="projectsList"></div>
-            </div>
-        </section>
-    </div>
-
-    <script>
-        // Array para almacenar los docentes
-        let teachers = [];
-        let projects = [];
-
-        function showSection(sectionId) {
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(sectionId).classList.add('active');
-
-            document.querySelectorAll('.nav-button').forEach(button => {
-                button.classList.remove('active');
-            });
-            event.target.classList.add('active');
+        <?php
+        include("../../config/conexion.php");
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
         }
 
-        function showAlert(message, type) {
-            const alert = document.getElementById('alert');
-            alert.className = `alert alert-${type}`;
-            alert.textContent = message;
-            alert.style.display = 'block';
-            setTimeout(() => {
-                alert.style.display = 'none';
-            }, 3000);
-        }
+        // Manejo del formulario de nuevo post
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['titulo']) && isset($_POST['contenido'])) {
+            $titulo = htmlspecialchars($_POST['titulo']);
+            $contenido = htmlspecialchars($_POST['contenido']);
+            $usuario_id = $_SESSION['id_usuario'];
 
-        function addTeacher() {
-            const name = document.getElementById('teacherName').value;
-            const specialty = document.getElementById('specialty').value;
-            const faculty = document.getElementById('faculty');
-            const facultyName = faculty.options[faculty.selectedIndex].text;
+            $sql = "INSERT INTO foro_posts (titulo, contenido, usuario_id, fecha_creacion) VALUES (?, ?, ?, NOW())";
+            $stmt = $conexion->prepare($sql);
+            $stmt->bind_param("ssi", $titulo, $contenido, $usuario_id);
 
-            if (!name || !specialty || !faculty.value) {
-                showAlert('Por favor complete todos los campos del docente', 'error');
-                return;
+            if ($stmt->execute()) {
+                echo "<div class='alert success'>Post creado exitosamente</div>";
+            } else {
+                echo "<div class='alert error'>Error al crear el post</div>";
             }
-
-            const teacher = {
-                name,
-                specialty,
-                faculty: facultyName
-            };
-
-            teachers.push(teacher);
-            updateTeachersList();
-            clearTeacherForm();
         }
+        ?>
 
-        function clearTeacherForm() {
-            document.getElementById('teacherName').value = '';
-            document.getElementById('specialty').value = '';
-            document.getElementById('faculty').value = '';
-        }
+        <!-- Formulario para nuevo post -->
+        <div class="new-post-form">
+            <h2>Crear Nueva Publicación</h2>
+            <form method="POST" action="">
+                <div class="form-group">
+                    <label for="titulo">Título</label>
+                    <input type="text" id="titulo" name="titulo" required>
+                </div>
+                <div class="form-group">
+                    <label for="contenido">Contenido</label>
+                    <textarea id="contenido" name="contenido" required></textarea>
+                </div>
+                <button type="submit" class="btn">Publicar</button>
+            </form>
+        </div>
 
-        function removeTeacher(index) {
-            teachers.splice(index, 1);
-            updateTeachersList();
-        }
+        <!-- Lista de posts -->
+        <div class="card-grid">
+            <?php
+            $sql = "SELECT fp.*, u.Nombre as autor 
+                    FROM foro_posts fp 
+                    JOIN usuarios u ON fp.usuario_id = u.idusuarios 
+                    ORDER BY fp.fecha_creacion DESC";
+            $result = $conexion->query($sql);
 
-        function updateTeachersList() {
-            const list = document.getElementById('teacherList');
-            list.innerHTML = '';
-
-            teachers.forEach((teacher, index) => {
-                const div = document.createElement('div');
-                div.className = 'teacher-item';
-                div.innerHTML = `
-                    <div class="teacher-info">
-                        <span>${teacher.name}</span>
-                        <span>${teacher.specialty}</span>
-                        <span>${teacher.faculty}</span>
-                    </div>
-                    <button class="delete-btn" onclick="removeTeacher(${index})">×</button>
-                `;
-                list.appendChild(div);
-            });
-        }
-
-        function handleProjectSubmit(event) {
-            event.preventDefault();
-
-            const project = {
-                name: document.getElementById('projectName').value,
-                objectives: document.getElementById('objectives').value,
-                disciplines: document.getElementById('disciplines').value,
-                roles: document.getElementById('roles').value,
-                startDate: document.getElementById('startDate').value,
-                endDate: document.getElementById('endDate').value,
-                teachers: [...teachers]
-            };
-
-            projects.push(project);
-            updateProjectsList();
-            showAlert('Proyecto registrado exitosamente', 'success');
-
-            // Limpiar formulario
-            event.target.reset();
-            teachers = [];
-            updateTeachersList();
-
-            return false;
-        }
-
-        function updateProjectsList() {
-            const list = document.getElementById('projectsList');
-            list.innerHTML = '';
-
-            projects.forEach(project => {
-                const div = document.createElement('div');
-                div.className = 'project-card';
-                div.innerHTML = `
-                    <h3>${project.name}</h3>
-                    <p><strong>Objetivos:</strong> ${project.objectives}</p>
-                    <p><strong>Disciplinas:</strong> ${project.disciplines}</p>
-                    <p><strong>Fecha inicio:</strong> ${project.startDate}</p>
-                    <p><strong>Fecha fin:</strong> ${project.endDate}</p>
-                    <p><strong>Docentes:</strong> ${project.teachers.map(t => t.name).join(', ')}</p>
-                `;
-                list.appendChild(div);
-            });
-        }
-    </script>
+            while ($row = $result->fetch_assoc()) {
+                echo "<div class='card'>";
+                echo "<h2>" . htmlspecialchars($row['titulo']) . "</h2>";
+                echo "<div class='author'>Por: " . htmlspecialchars($row['autor']) . "</div>";
+                echo "<div class='date'>" . date('d/m/Y H:i', strtotime($row['fecha_creacion'])) . "</div>";
+                echo "<p>" . nl2br(htmlspecialchars($row['contenido'])) . "</p>";
+                echo "</div>";
+            }
+            ?>
+        </div>
+    </div>
 </body>
 
 </html>

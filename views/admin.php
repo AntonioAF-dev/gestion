@@ -122,7 +122,7 @@ $row = $resultado->fetch_assoc();
                         </a>
                         <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                             <li>
-                                <a href="update_profile.php" target="_blank">
+                                <a href="update_profile.php">
                                     <i class="ace-icon fa fa-user"></i>
                                     Perfil
                                 </a>
@@ -263,7 +263,7 @@ $row = $resultado->fetch_assoc();
                     </div><!-- /.ace-settings-container -->
                     <div class="page-header">
                         <h1>
-                            Preselección de Proyectos: ¡Envía el Tuyo!
+                            Impulsa tus ideas: ¡Comparte tu proyecto y construyamos el futuro juntos!
                             <small>
                                 <i class="ace-icon fa fa-angle-double-right"></i>
                             </small>
@@ -288,9 +288,9 @@ $row = $resultado->fetch_assoc();
         </a>
     </div><!-- /.main-container -->
     <?php
-    
+
     include 'chatbot-standalone.php';
-    
+
     ?>
     <!-- basic scripts -->
     <!--[if !IE]> -->

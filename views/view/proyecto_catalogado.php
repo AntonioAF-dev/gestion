@@ -11,35 +11,35 @@
             <div class="projects-grid" id="projectsList">
                 <div class="project-card" data-project="Proyecto 1">
                     <div class="project-card-content">
-                        <h3>Proyecto 1</h3>
+                        <h3>Sistema de Gestión Académica</h3>
                         <p class="project-preview">Sistema de Gestión Académica</p>
                         <span class="project-status">En Revisión</span>
                     </div>
                 </div>
                 <div class="project-card" data-project="Proyecto 2">
                     <div class="project-card-content">
-                        <h3>Proyecto 2</h3>
+                        <h3>Plataforma E-learning</h3>
                         <p class="project-preview">Plataforma E-learning</p>
                         <span class="project-status">Aprobado</span>
                     </div>
                 </div>
                 <div class="project-card" data-project="Proyecto 3">
                     <div class="project-card-content">
-                        <h3>Proyecto 3</h3>
+                        <h3>Sistema de Biblioteca Digital</h3>
                         <p class="project-preview">Sistema de Biblioteca Digital</p>
                         <span class="project-status">En Revisión</span>
                     </div>
                 </div>
                 <div class="project-card" data-project="Proyecto 4">
                     <div class="project-card-content">
-                        <h3>Proyecto 4</h3>
+                        <h3>App Móvil Universitaria</h3>
                         <p class="project-preview">App Móvil Universitaria</p>
                         <span class="project-status">Pendiente</span>
                     </div>
                 </div>
                 <div class="project-card" data-project="Proyecto 5">
                     <div class="project-card-content">
-                        <h3>Proyecto 5</h3>
+                        <h3>Portal de Investigación</h3>
                         <p class="project-preview">Portal de Investigación</p>
                         <span class="project-status">Aprobado</span>
                     </div>

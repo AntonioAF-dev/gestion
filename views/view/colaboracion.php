@@ -154,7 +154,7 @@ $monthlyContributions = [
         <div class="navbar-container ace-save-state" id="navbar-container">
             <div class="navbar-header pull-left">
                 <a href="../admin.php" class="navbar-brand">
-                    <small><i class="fa fa-leaf"></i> Colaboraciones en Proyectos 🧑‍💻</small>
+                    <small><i class="fa fa-leaf"></i> ⬅️ Home || 🧑‍💻 Colaboraciones en Proyectos 🧑‍💻</small>
                 </a>
             </div>
         </div>

@@ -59,7 +59,7 @@ if (!isset($stats['completion_trend']) || !is_array($stats['completion_trend']))
         <div class="navbar-container ace-save-state" id="navbar-container">
             <div class="navbar-header pull-left">
                 <a href="../admin.php" class="navbar-brand">
-                    <small><i class="fa fa-leaf"></i> Dashboard de Proyectos 👨‍💻</small>
+                    <small><i class="fa fa-leaf"></i> ⬅️ Home || 💻 Dashboard de Proyectos 👨‍💻</small>
                 </a>
             </div>
         </div>

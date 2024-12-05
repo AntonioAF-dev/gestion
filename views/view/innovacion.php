@@ -271,7 +271,7 @@ function getRatingStars($rating)
             <div class="navbar-container">
                 <div class="navbar-header pull-left">
                     <a href="../admin.php" class="navbar-brand">
-                        <small><i class="fa fa-users"></i> Innovacion</small>
+                        <small><i class="fa fa-users"></i> ⬅️ Home || 🫷🤖🫸 💻 Innovacion 🎖️📖📑📚 </small>
                     </a>
                 </div>
             </div>

@@ -100,7 +100,7 @@ function getStatusColor($status) {
         <div class="navbar-container">
             <div class="navbar-header pull-left">
                 <a href="../admin.php" class="navbar-brand">
-                    <small><i class="fa fa-leaf"></i> Análisis de Proyectos</small>
+                    <small><i class="fa fa-leaf"></i> ⬅️ Home || 📚 Análisis de Proyectos 📚</small>
                 </a>
             </div>
         </div>

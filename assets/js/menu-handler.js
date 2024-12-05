@@ -245,6 +245,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
+
     // Agrega el evento click a cada elemento del menú
     menuItems.forEach(item => {
         item.addEventListener('click', function (e) {
@@ -268,8 +269,6 @@ document.addEventListener('DOMContentLoaded', function () {
             loadContent(url);
         });
     });
-
-
 
     // Carga el contenido inicial
     loadContent('view/enviar-proyecto.php');
