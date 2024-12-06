@@ -15,7 +15,7 @@ $resultado = $conexion->query($sql);
 $row = $resultado->fetch_assoc();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
