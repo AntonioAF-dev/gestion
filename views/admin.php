@@ -37,7 +37,10 @@ $row = $resultado->fetch_assoc();
     <![endif]-->
     <link rel="stylesheet" href="../assets/css/ace-skins.min.css" />
     <link rel="stylesheet" href="../assets/css/ace-rtl.min.css" />
+    <link rel="stylesheet" href="../assets/css/proyectos.css">
+    <script src="../assets/js/app.js"></script>
     <script src="../assets/js/menu-handler.js"></script>
+    <script src="../assets/js/project-handlers.js"></script>
     <script src="../assets/js/proceso.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!--[if lte IE 9]>

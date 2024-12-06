@@ -13,15 +13,6 @@
 	</li>
 
 	<!-- Proyectos Colaborativos -->
-	<li id="#" class="colab-proyectos-form">
-		<a href="#" data-target="colab-proyectos">
-			<i class="menu-icon fa fa-users"></i>
-			<span class="menu-text"> Foro </span>
-		</a>
-		<b class="arrow"></b>
-	</li>
-
-	<!-- Proyectos Colaborativos -->
 	<li id="#" class="#">
 		<a href="#" data-target="forum_view">
 			<i class="menu-icon fa fa-laptop"></i>
